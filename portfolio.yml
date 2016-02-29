@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    portfolio:
+        container_name: 'portfolio'
+        image: florentindubois/portfolio
+
+        expose:
+            - "80"

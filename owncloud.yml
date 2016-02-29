@@ -8,6 +8,9 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=<password>
 
+        expose:
+            - "3306"
+
         volumes:
             - /srv/mariadb:/var/lib/mysql
 
@@ -15,8 +18,8 @@ services:
         container_name: owncloud
         image: owncloud:latest
 
-        ports:
-            - "80:80"
+        expose:
+            - "80"
 
         links:
             - mariadb
