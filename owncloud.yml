@@ -16,7 +16,7 @@ services:
         image: owncloud:latest
 
         ports:
-            - "8080:80"
+            - "80:80"
 
         links:
             - mariadb
