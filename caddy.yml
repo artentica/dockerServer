@@ -3,7 +3,7 @@ version: '2'
 services:
     caddy:
         container_name: caddy
-        image: joshix/caddy
+        image: caddy
 
         external_links:
             - owncloud
