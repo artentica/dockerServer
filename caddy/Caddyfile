@@ -1,0 +1,30 @@
+florentin-dubois.fr {
+    tls off
+
+    proxy / portfolio
+    gzip
+}
+
+www.florentin-dubois.fr {
+    tls off
+
+    proxy / portfolio
+    gzip
+}
+
+portfolio.florentin-dubois.fr {
+    tls off
+
+    proxy / portfolio
+    gzip
+}
+
+owncloud.florentin-dubois.fr {
+    tls off
+
+    proxy / owncloud {
+        websocket
+    }
+
+    gzip
+}
