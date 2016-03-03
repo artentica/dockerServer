@@ -40,4 +40,4 @@ Order for launch :
 
 in order increasing
 
-or launch all.yml
+or launch ``[sudo] docker-compose up`` in the directory
