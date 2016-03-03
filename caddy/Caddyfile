@@ -38,3 +38,13 @@ sickrage.florentin-dubois.fr {
 
     gzip
 }
+
+couchpotato.florentin-dubois.fr {
+    tls off
+
+    proxy / couchpotato:5050 {
+        websocket
+    }
+
+    gzip
+}

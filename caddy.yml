@@ -9,6 +9,7 @@ services:
             - owncloud
             - portfolio
             - sickrage
+            - couchpotato
 
         ports:
             - "80:2015"
