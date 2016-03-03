@@ -104,6 +104,18 @@ services:
         depends_on:
             - deluge
 
+    h5ai:
+        container_name: h5ai
+        image: clue/h5ai
+
+        volumes:
+            - /srv/deluge/downloads:/var/www/deluge
+            - /srv/sickrage/downloads:/var/www/sickrage
+            - /srv/couchpotato/downloads:/var/www/couchpotato
+
+        expose:
+            - "80"
+
     caddy:
         container_name: caddy
         image: florentindubois/infrastructure
@@ -114,6 +126,7 @@ services:
             - sickrage
             - couchpotato
             - deluge
+            - h5ai
 
         depends_on:
             - owncloud
@@ -121,8 +134,9 @@ services:
             - sickrage
             - couchpotato
             - deluge
+            - h5ai
 
         ports:
-            - "80:80"
+            - "80:2015"
             - "443:443"
             - "2015:2015"

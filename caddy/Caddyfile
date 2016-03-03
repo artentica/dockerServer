@@ -58,3 +58,13 @@ deluge.florentin-dubois.fr {
 
     gzip
 }
+
+files.florentin-dubois.fr {
+    tls off
+
+    proxy / h5ai {
+        websocket
+    }
+
+    gzip
+}
