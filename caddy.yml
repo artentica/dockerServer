@@ -10,6 +10,7 @@ services:
             - portfolio
             - sickrage
             - couchpotato
+            - deluge
 
         ports:
             - "80:2015"
