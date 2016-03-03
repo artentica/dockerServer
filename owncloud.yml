@@ -18,8 +18,8 @@ services:
         container_name: owncloud
         image: owncloud:latest
 
-        expose:
-            - "80"
+        ports:
+            - "3623:80"
 
         links:
             - mariadb

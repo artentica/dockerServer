@@ -22,7 +22,7 @@ portfolio.florentin-dubois.fr {
 owncloud.florentin-dubois.fr {
     tls off
 
-    proxy / owncloud {
+    proxy / florentin-dubois.fr:3623 {
         websocket
     }
 
