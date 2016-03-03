@@ -8,6 +8,7 @@ services:
         external_links:
             - owncloud
             - portfolio
+            - sickrage
 
         ports:
             - "80:2015"

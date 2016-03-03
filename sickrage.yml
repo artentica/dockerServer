@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+    sickrage:
+        container_name: sickrage
+        image: binhex/arch-sickrage
+
+        expose:
+            - "8081"
+
+        volumes:
+            - /srv/sickrage/media:/media
+            - /srv/sickrage/data:/data
+            - /srv/sickrage/config:/config
+            - /etc/localtime:/etc/localtime:ro
+
+        environment:
+            - PUID=0
+            - GUID=0

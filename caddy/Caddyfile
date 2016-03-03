@@ -28,3 +28,13 @@ owncloud.florentin-dubois.fr {
 
     gzip
 }
+
+sickrage.florentin-dubois.fr {
+    tls off
+
+    proxy / sickrage:8081 {
+        websocket
+    }
+
+    gzip
+}
