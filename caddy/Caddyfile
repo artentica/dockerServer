@@ -48,3 +48,13 @@ couchpotato.florentin-dubois.fr {
 
     gzip
 }
+
+deluge.florentin-dubois.fr {
+    tls off
+
+    proxy / deluge:8112 {
+        websocket
+    }
+
+    gzip
+}
