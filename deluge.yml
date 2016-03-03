@@ -16,3 +16,6 @@ services:
 
         expose:
             - "8112"
+
+        ports:
+            - "20000-21999"
