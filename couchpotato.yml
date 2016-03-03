@@ -15,5 +15,8 @@ services:
             - /srv/couchpotato/movies:/movies
             - /etc/localtime:/etc/localtime:ro
 
+        external_links:
+            - deluge
+
         expose:
             - "5050"
