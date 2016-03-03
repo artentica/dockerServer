@@ -1,0 +1,127 @@
+version: '2'
+
+services:
+    portfolio:
+        container_name: 'portfolio'
+        image: portfolio
+
+        expose:
+            - "80"
+
+    mariadb:
+        container_name: mariadb
+        image: mariadb:latest
+
+        environment:
+            - MYSQL_ROOT_PASSWORD=<password>
+
+        expose:
+            - "3306"
+
+        volumes:
+            - /srv/mariadb:/var/lib/mysql
+
+    owncloud:
+        container_name: owncloud
+        image: owncloud:latest
+
+        expose:
+            - "80"
+
+        volumes:
+            - /srv/owncloud:/var/www/html
+
+        links:
+            - mariadb
+
+        depends_on:
+            - mariadb
+
+    deluge:
+        container_name: deluge
+        image: linuxserver/deluge
+
+        environment:
+            - PUID=0
+            - PGID=0
+
+        volumes:
+            - /srv/deluge/downloads:/downloads
+            - /srv/deluge/config:/config
+            - /etc/localtime:/etc/localtime:ro
+
+        expose:
+            - "8112"
+            - "58846"
+
+        ports:
+            - "7000-7009:7000-7009"
+
+    sickrage:
+        container_name: sickrage
+        image: binhex/arch-sickrage
+
+        expose:
+            - "8081"
+
+        volumes:
+            - /srv/sickrage/media:/media
+            - /srv/sickrage/data:/data
+            - /srv/sickrage/config:/config
+            - /etc/localtime:/etc/localtime:ro
+
+        environment:
+            - PUID=0
+            - GUID=0
+
+        links:
+            - deluge
+
+        depends_on:
+            - deluge
+
+
+    couchpotato:
+        container_name: couchpotato
+        image: linuxserver/couchpotato
+
+        environment:
+            - PGID=0
+            - PUID=0
+
+        volumes:
+            - /srv/couchpotato/config:/config
+            - /srv/couchpotato/downloads:/downloads
+            - /srv/couchpotato/movies:/movies
+            - /etc/localtime:/etc/localtime:ro
+
+        expose:
+            - "5050"
+
+        links:
+            - deluge
+
+        depends_on:
+            - deluge
+
+    caddy:
+        container_name: caddy
+        image: florentindubois/infrastructure
+
+        links:
+            - owncloud
+            - portfolio
+            - sickrage
+            - couchpotato
+            - deluge
+
+        depends_on:
+            - owncloud
+            - portfolio
+            - sickrage
+            - couchpotato
+            - deluge
+
+        ports:
+            - "80:2015"
+            - "443:2015"

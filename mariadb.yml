@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+    mariadb:
+        container_name: mariadb
+        image: mariadb:latest
+
+        environment:
+            - MYSQL_ROOT_PASSWORD=<password>
+
+        expose:
+            - "3306"
+
+        volumes:
+            - /srv/mariadb:/var/lib/mysql
