@@ -123,6 +123,9 @@ services:
         expose:
             - "80"
 
+        links:
+            - mariadb
+
     caddy:
         container_name: caddy
         image: florentindubois/infrastructure:caddy
