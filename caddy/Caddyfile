@@ -62,6 +62,8 @@ deluge.florentin-dubois.fr {
 files.florentin-dubois.fr {
     tls off
 
+    basicauth / <username> <password>
+
     proxy / h5ai {
         websocket
     }

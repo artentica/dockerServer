@@ -9,4 +9,6 @@ RUN chmod 777 -R _h5ai
 COPY apache2.conf /etc/apache2/apache2.conf
 COPY . /var/www/html/
 
+RUN rm /var/www/html/apache2.conf /var/www/html/Dockerfile 
+
 EXPOSE 80
