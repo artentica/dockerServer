@@ -7,7 +7,8 @@ services:
 
         volumes:
             - /srv/deluge/downloads:/var/www/html/deluge
-            - /srv/sickrage/downloads:/var/www/html/sickrage
+            - /srv/sickrage/data:/var/www/html/sickrage/data
+            - /srv/sickrage/downloads:/var/www/html/sickrage/downloads
             - /srv/couchpotato/downloads:/var/www/html/couchpotato
 
         expose:
