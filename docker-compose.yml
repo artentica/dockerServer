@@ -120,6 +120,9 @@ services:
         container_name: rainloop
         image: florentindubois/infrastructure:rainloop
 
+        volumes:
+            - /srv/rainloop/data:/var/www/html/data
+
         expose:
             - "80"
 
