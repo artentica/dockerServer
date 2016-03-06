@@ -2,7 +2,33 @@ Infrastructure
 =====
 
 That is a project to collect or write some compose file for docker use by the command : ``docker-compose``.
-This project contain a Dockerfile and Caddyfile that allow docker to access internet by reverse proxy with tls and http2.
+This project contain some Dockerfile for running personnal docker.
+
+
+Caddy Server
+====
+
+It's my personnal docker for running reverse proxy
+
+base on caddy server
+
+use in cli ``docker pull florentindubois/infrastructure:caddy``
+
+Rainloop Server
+====
+
+It's a docker for run rainloop.
+
+for more details go to (rainloop.net/docs)[http://www.rainloop.net/docs/]
+
+use in cli ``docker pull florentindubois/infrastructure:rainloop``
+
+h5ai
+====
+
+It's a docker for interface h5ai
+
+use in cli ``docker pull florentindubois/infrastructure:h5ai``
 
 
 How to use :

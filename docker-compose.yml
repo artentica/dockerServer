@@ -106,20 +106,26 @@ services:
 
     h5ai:
         container_name: h5ai
-        image: smdion/docker-h5ai
+        image: florentindubois/infrastructure:h5ai
 
         volumes:
             - /srv/deluge/downloads:/var/www/deluge
             - /srv/sickrage/downloads:/var/www/sickrage
             - /srv/couchpotato/downloads:/var/www/couchpotato
-            - /srv/h5ai/config:/config
+
+        expose:
+            - "80"
+
+    rainloop:
+        container_name: rainloop
+        image: florentindubois/infrastructure:rainloop
 
         expose:
             - "80"
 
     caddy:
         container_name: caddy
-        image: florentindubois/infrastructure
+        image: florentindubois/infrastructure:caddy
 
         links:
             - owncloud
@@ -128,6 +134,7 @@ services:
             - couchpotato
             - deluge
             - h5ai
+            - rainloop
 
         depends_on:
             - owncloud

@@ -68,3 +68,13 @@ files.florentin-dubois.fr {
 
     gzip
 }
+
+rainloop.florentin-dubois.fr {
+    tls off
+
+    proxy / rainloop {
+        websocket
+    }
+
+    gzip
+}

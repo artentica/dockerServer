@@ -3,7 +3,7 @@ version: '2'
 services:
     caddy:
         container_name: caddy
-        image: florentindubois/infrastructure
+        image: florentindubois/infrastructure:caddy
 
         external_links:
             - owncloud
