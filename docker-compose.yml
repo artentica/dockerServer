@@ -109,7 +109,6 @@ services:
         image: florentindubois/infrastructure:h5ai
 
         volumes_from:
-            - caddy:ro
             - deluge:ro
             - couchpotato:ro
             - sickrage:ro
