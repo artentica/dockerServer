@@ -1,26 +1,26 @@
 florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy / portfolio
     gzip
 }
 
 www.florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy / portfolio
     gzip
 }
 
 portfolio.florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy / portfolio
     gzip
 }
 
 owncloud.florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy / owncloud {
         websocket
@@ -30,7 +30,7 @@ owncloud.florentin-dubois.fr {
 }
 
 sickrage.florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy / sickrage:8081 {
         websocket
@@ -40,7 +40,7 @@ sickrage.florentin-dubois.fr {
 }
 
 couchpotato.florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy / couchpotato:5050 {
         websocket
@@ -50,7 +50,7 @@ couchpotato.florentin-dubois.fr {
 }
 
 deluge.florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy / deluge:8112 {
         websocket
@@ -60,7 +60,7 @@ deluge.florentin-dubois.fr {
 }
 
 files.florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     basicauth / <username> <password>
 
@@ -72,7 +72,7 @@ files.florentin-dubois.fr {
 }
 
 rainloop.florentin-dubois.fr {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy / rainloop {
         websocket

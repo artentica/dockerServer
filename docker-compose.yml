@@ -140,6 +140,9 @@ services:
             - h5ai
             - rainloop
 
+        volumes:
+            - /srv/caddy:/root/.caddy
+
         depends_on:
             - owncloud
             - portfolio
@@ -149,4 +152,5 @@ services:
             - h5ai
 
         ports:
+            - "443:2015"
             - "80:2015"
