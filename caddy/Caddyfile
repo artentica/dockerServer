@@ -23,18 +23,6 @@ www.florentin-dubois.fr:443 {
     gzip
 }
 
-portfolio.florentin-dubois.fr:80 {
-    proxy / portfolio
-    gzip
-}
-
-portfolio.florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
-
-    proxy / portfolio
-    gzip
-}
-
 owncloud.florentin-dubois.fr:443 {
     tls server@florentin-dubois.fr
 

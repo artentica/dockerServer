@@ -5,7 +5,7 @@ services:
         container_name: caddy
         image: florentindubois/infrastructure:caddy
 
-        links:
+        external_links:
             - owncloud
             - portfolio
             - sickrage
@@ -17,14 +17,6 @@ services:
         volumes:
             - /srv/caddy:/root/.caddy
 
-        depends_on:
-            - owncloud
-            - portfolio
-            - sickrage
-            - couchpotato
-            - deluge
-            - h5ai
-
         ports:
-            - "443:2015"
-            - "80:2015"
+            - "443:443"
+            - "80:80"
