@@ -4,7 +4,7 @@ florentin-dubois.fr:80 {
 }
 
 florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
+    tls off
 
     proxy / portfolio
     gzip
@@ -17,14 +17,14 @@ www.florentin-dubois.fr:80 {
 }
 
 www.florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
+    tls off
 
     proxy / portfolio
     gzip
 }
 
 owncloud.florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
+    tls off
 
     proxy / owncloud {
         websocket
@@ -34,7 +34,7 @@ owncloud.florentin-dubois.fr:443 {
 }
 
 sickrage.florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
+    tls off
 
     proxy / sickrage:8081 {
         websocket
@@ -44,7 +44,7 @@ sickrage.florentin-dubois.fr:443 {
 }
 
 couchpotato.florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
+    tls off
 
     proxy / couchpotato:5050 {
         websocket
@@ -54,7 +54,7 @@ couchpotato.florentin-dubois.fr:443 {
 }
 
 deluge.florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
+    tls off
 
     proxy / deluge:8112 {
         websocket
@@ -64,7 +64,7 @@ deluge.florentin-dubois.fr:443 {
 }
 
 files.florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
+    tls off
 
     basicauth / <username> <password>
 
@@ -76,7 +76,7 @@ files.florentin-dubois.fr:443 {
 }
 
 rainloop.florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
+    tls off
 
     proxy / rainloop {
         websocket
