@@ -108,11 +108,11 @@ services:
         container_name: h5ai
         image: florentindubois/infrastructure:h5ai
 
-        volumes:
-            - /srv/deluge/config/Downloads:/var/www/html/deluge
-            - /srv/sickrage/data:/var/www/html/sickrage/data
-            - /srv/sickrage/downloads:/var/www/html/sickrage/downloads
-            - /srv/couchpotato/downloads:/var/www/html/couchpotato
+        volumes_from:
+            - caddy:ro
+            - deluge:ro
+            - couchpotato:ro
+            - sickrage:ro
 
         expose:
             - "80"
