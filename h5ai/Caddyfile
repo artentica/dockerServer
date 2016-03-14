@@ -1,4 +1,4 @@
-h5ai:80 {
+*:80 {
 	root /config/Downloads
 
     fastcgi / 127.0.0.1:9000 php {
