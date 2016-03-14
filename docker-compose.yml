@@ -109,7 +109,7 @@ services:
         image: florentindubois/infrastructure:h5ai
 
         volumes_from:
-            - deluge:ro
+            - deluge:rw
 
         expose:
             - "80"

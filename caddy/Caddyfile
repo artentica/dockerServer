@@ -66,8 +66,6 @@ deluge.florentin-dubois.fr:443 {
 files.florentin-dubois.fr:443 {
     tls off
 
-    basicauth / <username> <password>
-
     proxy / h5ai {
         websocket
     }
