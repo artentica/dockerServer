@@ -3,25 +3,12 @@ florentin-dubois.fr:80 {
     gzip
 }
 
-florentin-dubois.fr:443 {
-    tls server@florentin-dubois.fr
-
-    proxy / portfolio
-    gzip
-}
-
-
 www.florentin-dubois.fr:80 {
     proxy / portfolio
     gzip
 }
 
-www.florentin-dubois.fr:443 {
-    proxy / portfolio
-    gzip
-}
-
-owncloud.florentin-dubois.fr:443 {
+owncloud.florentin-dubois.fr:80 {
     proxy / owncloud {
         websocket
     }
@@ -29,7 +16,7 @@ owncloud.florentin-dubois.fr:443 {
     gzip
 }
 
-sickrage.florentin-dubois.fr:443 {
+sickrage.florentin-dubois.fr:80 {
     proxy / sickrage:8081 {
         websocket
     }
@@ -37,7 +24,7 @@ sickrage.florentin-dubois.fr:443 {
     gzip
 }
 
-couchpotato.florentin-dubois.fr:443 {
+couchpotato.florentin-dubois.fr:80 {
     proxy / couchpotato:5050 {
         websocket
     }
@@ -45,7 +32,7 @@ couchpotato.florentin-dubois.fr:443 {
     gzip
 }
 
-deluge.florentin-dubois.fr:443 {
+deluge.florentin-dubois.fr:80 {
     proxy / deluge:8112 {
         websocket
     }
@@ -53,15 +40,15 @@ deluge.florentin-dubois.fr:443 {
     gzip
 }
 
-files.florentin-dubois.fr:443 {
-    proxy / h5ai:80 {
+files.florentin-dubois.fr:80 {
+    proxy / h5ai {
         websocket
     }
 
     gzip
 }
 
-rainloop.florentin-dubois.fr:443 {
+rainloop.florentin-dubois.fr:80 {
     proxy / rainloop {
         websocket
     }
