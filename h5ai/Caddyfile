@@ -1,3 +1,10 @@
-:80
-root /config/Downloads
-gzip
+:80 {
+    root /config/Downloads
+    gzip
+
+    fastcgi / 127.0.0.1:9000 {
+        ext   .php
+        split .php
+        index index.php /_h5ai/public/index.php
+    }
+}
