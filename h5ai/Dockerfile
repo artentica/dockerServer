@@ -1,8 +1,9 @@
 FROM abiosoft/caddy
 
-RUN apt-get update && apt-get upgrade -y && apt-get install php php-fpm
-
 COPY Caddyfile /etc/Caddyfile
 
+RUN wget http://release.larsjung.de/h5ai/h5ai-0.28.1.zip
+RUN unzip h5ai-0.28.1.zip && rm h5ai-0.28.1.zip
+COPY . /config/Downloads/_h5ai
+
 EXPOSE 80
-EXPOSE 443
