@@ -15,6 +15,9 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=<password>
 
+	ports:
+	    - "3305:3306"
+
         expose:
             - "3306"
 
