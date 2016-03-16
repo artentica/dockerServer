@@ -55,3 +55,11 @@ rainloop.florentin-dubois.fr:80 {
 
     gzip
 }
+
+store.florentin-dubois.fr:80  {
+    proxy / store {
+        websocket
+    }
+
+    gzip
+}
