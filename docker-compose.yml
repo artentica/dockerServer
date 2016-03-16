@@ -114,6 +114,9 @@ services:
         expose:
             - "80"
 
+        depends_on:
+            - deluge
+
     rainloop:
         container_name: rainloop
         image: florentindubois/infrastructure:rainloop
@@ -123,6 +126,22 @@ services:
 
         expose:
             - "80"
+
+    store:
+        container_name: store
+        image: store
+
+        volumes:
+            - /srv/store:/var/www/html
+
+        expose:
+            - "80"
+
+        links:
+            - mariadb
+
+        depends_on:
+            - mariadb
 
     caddy:
         container_name: caddy
