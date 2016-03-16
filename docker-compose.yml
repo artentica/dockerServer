@@ -130,6 +130,19 @@ services:
         expose:
             - "80"
 
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin/phpmyadmin
+
+        expose:
+            - "8080"
+
+        environment:
+            - PMA_HOST=mariadb
+            - PMA_PORT=3306
+            - PMA_USER=<username>
+            - PMA_PASSWORD=<password>
+
     store:
         container_name: store
         image: store

@@ -63,3 +63,11 @@ store.florentin-dubois.fr:80  {
 
     gzip
 }
+
+data.florentin-dubois.fr:80 {
+    proxy / phpmyadmin:8080 {
+        websocket
+    }
+
+    gzip
+}
