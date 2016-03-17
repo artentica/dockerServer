@@ -135,13 +135,18 @@ services:
         image: phpmyadmin/phpmyadmin
 
         expose:
-            - "8080"
+            - "80"
 
         environment:
             - PMA_HOST=mariadb
             - PMA_PORT=3306
-            - PMA_USER=<username>
-            - PMA_PASSWORD=<password>
+            - PMA_ABSOLUTE_URI=data.florentin-dubois.fr
+
+        links:
+            - mariadb
+
+        depends_on:
+            - mariadb
 
     store:
         container_name: store
@@ -171,6 +176,7 @@ services:
             - deluge
             - h5ai
             - rainloop
+            - phpmyadmin
 
         volumes:
             - /srv/caddy:/root/.caddy
@@ -182,6 +188,7 @@ services:
             - couchpotato
             - deluge
             - h5ai
+            - phpmyadmin
 
         ports:
             - "80:80"

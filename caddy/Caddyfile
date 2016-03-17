@@ -65,7 +65,7 @@ store.florentin-dubois.fr:80  {
 }
 
 data.florentin-dubois.fr:80 {
-    proxy / phpmyadmin:8080 {
+    proxy / phpmyadmin:80 {
         websocket
     }
 
