@@ -71,3 +71,11 @@ data.florentin-dubois.fr:80 {
 
     gzip
 }
+
+bot.florentin-dubois.fr:80 {
+    proxy / steambot:80 {
+        websocket
+    }
+
+    gzip
+}

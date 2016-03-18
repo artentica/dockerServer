@@ -164,6 +164,16 @@ services:
         depends_on:
             - mariadb
 
+    steambot:
+        container_name: steambot
+        image: steambot
+
+        expose:
+            - "80"
+
+        depends_on:
+            - store
+
     caddy:
         container_name: caddy
         image: florentindubois/infrastructure:caddy
@@ -177,6 +187,7 @@ services:
             - h5ai
             - rainloop
             - phpmyadmin
+            - steambot
 
         volumes:
             - /srv/caddy:/root/.caddy
@@ -189,6 +200,7 @@ services:
             - deluge
             - h5ai
             - phpmyadmin
+            - steambot
 
         ports:
             - "80:80"
