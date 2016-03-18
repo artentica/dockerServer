@@ -79,3 +79,11 @@ bot.florentin-dubois.fr:80 {
 
     gzip
 }
+
+bot.florentin-dubois.fr:443 {
+    proxy / steambot:443 {
+        websocket
+    }
+
+    gzip
+}
