@@ -10,6 +10,12 @@ owncloud.florentin-dubois.fr {
     gzip
 }
 
+deluge.florentin-dubois.fr {
+    tls server@florentin-dubois.fr
+    proxy / deluge:8112
+    gzip
+}
+
 sickrage.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / sickrage:8081
