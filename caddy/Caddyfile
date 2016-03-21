@@ -1,5 +1,5 @@
 florentin-dubois.fr:80, www.florentin-dubois.fr:80 {
-    tls off
+    tls server@florentin-dubois.fr
     proxy / portfolio
     gzip
 }
@@ -29,7 +29,7 @@ rainloop.florentin-dubois.fr {
 }
 
 beta.florentin-dubois.fr:80 {
-    tls off
+    tls server@florentin-dubois.fr
 
     proxy /h1z1-store store
     proxy /data phpmyadmin
