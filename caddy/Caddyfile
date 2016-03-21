@@ -4,66 +4,52 @@ florentin-dubois.fr, www.florentin-dubois.fr {
     gzip
 }
 
-owncloud.florentin-dubois.fr {
+personnal.florentin-dubois.fr {
     tls server@florentin-dubois.fr
-    proxy / owncloud {
+
+    root /srv
+    basicauth / <username> <password>
+    hugo
+
+    proxy /sickrage sickrage:8081 {
+        websocket
+    }
+
+    proxy /couchpotato couchpotato:5050 {
+        websocket
+    }
+
+    proxy /deluge deluge:8112 {
+        websocket
+    }
+
+    proxy /owncloud owncloud {
+        websocket
+    }
+
+    proxy /rainloop rainloop {
         websocket
     }
 
     gzip
 }
 
-sickrage.florentin-dubois.fr {
+beta.florentin-dubois.fr {
     tls server@florentin-dubois.fr
-    proxy / sickrage:8081 {
+
+    basicauth / <username> <password> 
+   
+    proxy /store store {
         websocket
     }
 
-    gzip
-}
-
-couchpotato.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-    proxy / couchpotato:5050 {
-        websocket
+    proxy /steambot steambot {
+        websocket	
     }
 
-    gzip
-}
-
-rainloop.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-    proxy / rainloop {
-        websocket
-    }
-
-    gzip
-}
-
-store.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-    proxy / store {
-        websocket
-    }
-
-    gzip
-}
-
-data.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-    proxy / phpmyadmin:80 {
-        websocket
-    }
-
-    gzip
-}
-
-bot.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-
-    proxy / steambot:80 {
-        websocket
-    }
+    proxy /data phpmyadmin {
+	websocket
+    } 
 
     gzip
 }
