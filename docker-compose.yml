@@ -107,19 +107,6 @@ services:
         depends_on:
             - deluge
 
-    h5ai:
-        container_name: h5ai
-        image: florentindubois/infrastructure:h5ai
-
-        volumes_from:
-            - deluge:rw
-
-        expose:
-            - "80"
-
-        depends_on:
-            - deluge
-
     rainloop:
         container_name: rainloop
         image: florentindubois/infrastructure:rainloop
@@ -184,7 +171,6 @@ services:
             - sickrage
             - couchpotato
             - deluge
-            - h5ai
             - rainloop
             - phpmyadmin
             - steambot
@@ -198,7 +184,6 @@ services:
             - sickrage
             - couchpotato
             - deluge
-            - h5ai
             - phpmyadmin
             - steambot
 
