@@ -1,14 +1,14 @@
-florentin-dubois.fr, www.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
+florentin-dubois.fr:80, www.florentin-dubois.fr:80 {
+    tls off
     proxy / portfolio
     gzip
 }
 
-personnal.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
+personnal.florentin-dubois.fr:80 {
+    tls off
 
     root /srv
-    basicauth / <username> <password>
+    basicauth / FlorentinDUBOIS Aqwzsxedc,123
     hugo
 
     proxy /sickrage sickrage:8081 {
@@ -34,10 +34,10 @@ personnal.florentin-dubois.fr {
     gzip
 }
 
-beta.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
+beta.florentin-dubois.fr:80 {
+    tls off
 
-    basicauth / <username> <password> 
+    basicauth / FlorentinDUBOIS Aqwzsxedc,123
    
     proxy /store store {
         websocket

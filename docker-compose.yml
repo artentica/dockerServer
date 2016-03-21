@@ -177,7 +177,7 @@ services:
 
         volumes:
             - /srv/caddy:/root/.caddy
-	    - /srv/deluge/config/Downloads:/srv:rw
+            - /srv/deluge/config/Downloads:/srv:rw
 
         depends_on:
             - owncloud
