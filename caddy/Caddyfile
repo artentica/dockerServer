@@ -8,7 +8,7 @@ personnal.florentin-dubois.fr:80 {
     tls off
 
     root /srv
-    basicauth / FlorentinDUBOIS Aqwzsxedc,123
+    basicauth / <username> <password>
     hugo
 
     proxy /sickrage sickrage:8081 {
@@ -37,7 +37,7 @@ personnal.florentin-dubois.fr:80 {
 beta.florentin-dubois.fr:80 {
     tls off
 
-    basicauth / FlorentinDUBOIS Aqwzsxedc,123
+    basicauth / <username> <password>
    
     proxy /store store {
         websocket
