@@ -34,20 +34,21 @@ rainloop.florentin-dubois.fr {
     gzip
 }
 
-beta.florentin-dubois.fr:80 {
+store.florentin-dubois.fr {
     tls server@florentin-dubois.fr
-
-    proxy /h1z1-store store
-    proxy /data phpmyadmin
-    proxy /steambot steambot
-
+    proxy / store
     gzip
 }
 
-files.florentin-dubois.fr {
+data.florentin-dubois.fr {
     tls server@florentin-dubois.fr
-
-    root /srv
-    hugo
-    basicauth / <username> <password>
+    proxy / phpmyadmin
+    gzip
 }
+
+steambot.florentin-dubois.fr {
+    tls server@florentin-dubois.fr
+    proxy / steambot
+    gzip
+}
+
