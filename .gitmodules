@@ -1,0 +1,4 @@
+[submodule "smartsudoku-server"]
+	path = smartsudoku-server
+[submodule "smartsudoku-server"]
+	url = https://github.com/FlorentinDUBOIS/smartsudoku-server.git

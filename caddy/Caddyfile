@@ -1,4 +1,4 @@
-florentin-dubois.fr:80, www.florentin-dubois.fr:80 {
+florentin-dubois.fr, www.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / portfolio
     gzip
