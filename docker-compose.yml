@@ -161,9 +161,19 @@ services:
         depends_on:
             - store
 
+    sudoku:
+        container_name: sudoku
+        image: florentindubois/infrastructure:sudoku
+
+        expose:
+            - "80"
+
     caddy:
         container_name: caddy
         image: florentindubois/infrastructure:caddy
+
+        volumes:
+            - /srv/caddy:/root/.caddy
 
         links:
             - owncloud
@@ -174,10 +184,7 @@ services:
             - rainloop
             - phpmyadmin
             - steambot
-
-        volumes:
-            - /srv/caddy:/root/.caddy
-            - /srv/deluge/config/Downloads:/srv:rw
+            - sudoku
 
         depends_on:
             - owncloud
@@ -187,6 +194,7 @@ services:
             - deluge
             - phpmyadmin
             - steambot
+            - sudoku
 
         ports:
             - "80:80"

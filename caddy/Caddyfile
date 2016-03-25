@@ -52,3 +52,8 @@ steambot.florentin-dubois.fr {
     gzip
 }
 
+sudoku.florentin-dubois.fr {
+    tls server@florentin-dubois.fr
+    proxy / sudoku
+    gzip
+}
