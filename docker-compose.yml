@@ -153,7 +153,7 @@ services:
 
     steambot:
         container_name: steambot
-        image: steambot
+        image: florentindubois/infrastructure:steambot
 
         expose:
             - "80"
