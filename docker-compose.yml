@@ -3,7 +3,7 @@ version: '2'
 services:
     portfolio:
         container_name: 'portfolio'
-        image: portfolio
+        image: florentindubois/infrastructure:portfolio
 
         expose:
             - "80"
@@ -42,7 +42,7 @@ services:
 
     deluge:
         container_name: deluge
-        image: linuxserver/deluge
+        image: linuxserver/deluge:latest
 
         environment:
             - PUID=0
@@ -62,7 +62,7 @@ services:
 
     sickrage:
         container_name: sickrage
-        image: binhex/arch-sickrage
+        image: binhex/arch-sickrage:latest
 
         expose:
             - "8081"
@@ -86,7 +86,7 @@ services:
 
     couchpotato:
         container_name: couchpotato
-        image: linuxserver/couchpotato
+        image: linuxserver/couchpotato:latest
 
         environment:
             - PGID=0
@@ -137,7 +137,7 @@ services:
 
     store:
         container_name: store
-        image: store
+        image: florentindubois/infrastructure:store
 
         volumes:
             - /srv/h1z1-store:/var/www/html
