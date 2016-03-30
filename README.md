@@ -1,69 +1,14 @@
 Infrastructure
 =====
 
-That is a project to collect or write some compose file for docker use by the command : ``docker-compose``.
-This project contain some Dockerfile for running personnal docker.
+This is project is use in addition to docker hub for automatize my Infrastructure.
 
+if you want to test :
 
-Caddy Server
-====
+```
+$ git pull origin master
 
-It's my personnal docker for running reverse proxy
+$ docker-compose up
+```
 
-base on caddy server
-
-use in cli ``docker pull florentindubois/infrastructure:caddy``
-
-Rainloop Server
-====
-
-It's a docker for run rainloop.
-
-for more details go to (rainloop.net/docs)[http://www.rainloop.net/docs/]
-
-use in cli ``docker pull florentindubois/infrastructure:rainloop``
-
-h5ai
-====
-
-It's a docker for interface h5ai
-
-use in cli ``docker pull florentindubois/infrastructure:h5ai``
-
-
-How to use :
-----
-
-First install package docker-compose
-
-on Arch Linux :
-
-``yaourt -S docker-compose``
-
-Now launch one instance :
-
-``[sudo] docker-compose -d -f file.yml up``
-
-* -d : is launch as daemon
-* -f : load file.yml
-
-sudo is not a obligation if you are in docker group
-
-For stop an instance :
-
-``[sudo] docker-compose -f file.yml down``
-
-Order for launch :
------
-
-- portfolio
-- deluge
-- sickrage (depend deluge)
-- couchpotato (depend deluge)
-- mariadb
-- owncloud (depend mariadb)
-- caddy (depends all except mariadb)
-
-in order increasing
-
-or launch ``[sudo] docker-compose up`` in the directory
+Now you can see some logs of docker and you can access to it by your port `80` if you have change `uri` in `Caddyfile`.
