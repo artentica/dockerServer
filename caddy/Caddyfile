@@ -57,3 +57,9 @@ sudoku.florentin-dubois.fr {
     proxy / sudoku
     gzip
 }
+
+monitor.florentin-dubois.fr {
+    tls server@florentin-dubois.fr
+    proxy / monitor:19999
+    gzip
+}
