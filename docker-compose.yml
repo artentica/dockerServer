@@ -10,7 +10,7 @@ services:
             - /sys:/host/sys:ro
 
         expose:
-            - "19999:19999"
+            - "19999"
 
         cap_add:
             - SYS_PTRACE
