@@ -4,6 +4,3 @@
 [submodule "portfolio"]
 	path = portfolio
 	url = https://github.com/FlorentinDUBOIS/portfolio.git
-[submodule "steambot"]
-	path = steambot
-	url = https://github.com/Noctisae/SteamBot-H1Z1-Test.git
