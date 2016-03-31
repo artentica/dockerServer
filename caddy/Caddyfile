@@ -60,6 +60,9 @@ sudoku.florentin-dubois.fr {
 
 monitor.florentin-dubois.fr {
     tls server@florentin-dubois.fr
-    proxy / monitor:19999
+    proxy / monitor:19999 {
+        websocket
+    }
+    
     gzip
 }
