@@ -6,7 +6,10 @@ florentin-dubois.fr, www.florentin-dubois.fr {
 
 owncloud.florentin-dubois.fr {
     tls server@florentin-dubois.fr
-    proxy / owncloud
+    proxy / owncloud {
+        websocket
+    }
+
     gzip
 }
 
@@ -37,18 +40,16 @@ rainloop.florentin-dubois.fr {
 store.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / store
+    proxy /bot steambot {
+        websocket
+    }
+
     gzip
 }
 
 data.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / phpmyadmin
-    gzip
-}
-
-steambot.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-    proxy / steambot
     gzip
 }
 
@@ -63,6 +64,15 @@ monitor.florentin-dubois.fr {
     proxy / monitor:19999 {
         websocket
     }
-    
+
+    gzip
+}
+
+cozy.florentin-dubois.fr {
+    tls server@florentin-dubois.fr
+    proxy / cozy {
+        websocket
+    }
+
     gzip
 }

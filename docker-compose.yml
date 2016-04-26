@@ -182,6 +182,16 @@ services:
         expose:
             - "80"
 
+    cozy:
+        container_name: cozy
+        image: cozy/full
+
+        environment:
+            - DISABLE_SSL=true
+
+        expose:
+            - "80"
+
     caddy:
         container_name: caddy
         image: florentindubois/infrastructure:caddy
@@ -200,6 +210,7 @@ services:
             - steambot
             - sudoku
             - monitor
+            - cozy
 
         depends_on:
             - owncloud
@@ -211,6 +222,7 @@ services:
             - steambot
             - sudoku
             - monitor
+            - cozy
 
         ports:
             - "80:80"
