@@ -1,6 +1,7 @@
 florentin-dubois.fr, www.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / portfolio
+    
     gzip
 }
 
@@ -22,12 +23,14 @@ deluge.florentin-dubois.fr {
 sickrage.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / sickrage:8081
+
     gzip
 }
 
 couchpotato.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / couchpotato:5050
+
     gzip
 }
 
@@ -40,9 +43,6 @@ rainloop.florentin-dubois.fr {
 store.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / store
-    proxy /bot steambot {
-        websocket
-    }
 
     gzip
 }
@@ -50,12 +50,14 @@ store.florentin-dubois.fr {
 data.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / phpmyadmin
+
     gzip
 }
 
 sudoku.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / sudoku
+
     gzip
 }
 
