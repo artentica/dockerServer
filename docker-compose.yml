@@ -186,7 +186,6 @@ services:
             - deluge
             - rainloop
             - phpmyadmin
-            - steambot
             - sudoku
             - monitor
 
@@ -197,7 +196,6 @@ services:
             - couchpotato
             - deluge
             - phpmyadmin
-            - steambot
             - sudoku
             - monitor
 
