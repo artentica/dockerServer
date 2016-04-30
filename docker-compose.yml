@@ -97,7 +97,6 @@ services:
         depends_on:
             - deluge
 
-
     couchpotato:
         container_name: couchpotato
         image: linuxserver/couchpotato:latest
