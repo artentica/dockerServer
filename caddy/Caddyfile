@@ -1,7 +1,7 @@
 florentin-dubois.fr, www.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / portfolio
-    
+
     gzip
 }
 
@@ -40,8 +40,8 @@ rainloop.florentin-dubois.fr {
     gzip
 }
 
-store.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
+store.florentin-dubois.fr:80 {
+    tls off
     proxy / store
 
     gzip
