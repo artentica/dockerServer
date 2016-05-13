@@ -19,6 +19,17 @@ services:
         container_name: 'portfolio'
         image: florentindubois/infrastructure:portfolio
 
+        environment:
+            - HOSTNAME=florentin-dubois.fr
+            - CONTACT_EMAIL=contact@florentin-dubois.fr
+            - GITHUB_USERNAME=FlorentinDUBOIS
+            - GITHUB_PASSWORD=
+            - TWITTER_CONSUMER_KEY=
+            - TWITTER_CONSUMER_SECRET=
+            - TWITTER_ACCESS_TOKEN_KEY=
+            - TWITTER_ACCESS_TOKEN_SECRET=
+            - TWITTER_USERNAME=FlorentinDUBOIS
+
         expose:
             - "80"
 
@@ -27,7 +38,7 @@ services:
         image: mariadb:latest
 
         environment:
-            - MYSQL_ROOT_PASSWORD=<password>
+            - MYSQL_ROOT_PASSWORD=
 
         ports:
             - "3305:3306"
@@ -148,12 +159,9 @@ services:
         depends_on:
             - mariadb
 
-    store:
-        container_name: store
-        image: florentindubois/infrastructure:store
-
-        volumes:
-            - /srv/h1z1-store:/var/www/html
+    piwik:
+        container_name: piwik
+        image: miton18/piwik-docker:latest
 
         expose:
             - "80"
@@ -188,6 +196,7 @@ services:
             - phpmyadmin
             - sudoku
             - monitor
+            - piwik
 
         depends_on:
             - owncloud
@@ -198,6 +207,7 @@ services:
             - phpmyadmin
             - sudoku
             - monitor
+            - piwik
 
         ports:
             - "80:80"

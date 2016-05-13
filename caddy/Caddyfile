@@ -40,13 +40,6 @@ rainloop.florentin-dubois.fr {
     gzip
 }
 
-store.florentin-dubois.fr:80 {
-    tls off
-    proxy / store
-
-    gzip
-}
-
 data.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / phpmyadmin
@@ -70,11 +63,10 @@ monitor.florentin-dubois.fr {
     gzip
 }
 
-cozy.florentin-dubois.fr {
+piwik.florentin-dubois.fr {
     tls server@florentin-dubois.fr
-    proxy / cozy {
-        websocket
-    }
+    proxy / piwik
 
     gzip
 }
+
