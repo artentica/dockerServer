@@ -1,20 +1,6 @@
 version: '2'
 
 services:
-    monitor:
-        container_name: monitor
-        image: titpetric/netdata:latest
-
-        volumes:
-            - /proc:/host/proc:ro
-            - /sys:/host/sys:ro
-
-        expose:
-            - "19999"
-
-        cap_add:
-            - SYS_PTRACE
-
     portfolio:
         container_name: 'portfolio'
         image: florentindubois/infrastructure:portfolio
@@ -29,6 +15,7 @@ services:
             - TWITTER_ACCESS_TOKEN_KEY=
             - TWITTER_ACCESS_TOKEN_SECRET=
             - TWITTER_USERNAME=FlorentinDUBOIS
+            - NODE_ENV=production
 
         expose:
             - "80"
@@ -48,6 +35,32 @@ services:
 
         volumes:
             - /srv/mariadb:/var/lib/mysql
+
+    mongodb:
+        container_name: mongodb
+        image: mongo:latest
+
+        expose:
+            - "27017"
+
+    kraken:
+        container_name: kraken
+        image: florentindubois/infrastructure:kraken
+
+        environment:
+            - MONGODB_HOST=mongodb
+            - MONGODB_PORT=27017
+            - MONGODB_BASE=kraken
+            - NODE_ENV=production
+
+        expose:
+            - "80"
+
+        links:
+            - mongodb
+
+        depends_on:
+            - mongodb
 
     owncloud:
         container_name: owncloud
@@ -159,26 +172,6 @@ services:
         depends_on:
             - mariadb
 
-    piwik:
-        container_name: piwik
-        image: miton18/piwik-docker:latest
-
-        expose:
-            - "80"
-
-        links:
-            - mariadb
-
-        depends_on:
-            - mariadb
-
-    sudoku:
-        container_name: sudoku
-        image: florentindubois/infrastructure:sudoku
-
-        expose:
-            - "80"
-
     caddy:
         container_name: caddy
         image: florentindubois/infrastructure:caddy
@@ -194,9 +187,7 @@ services:
             - deluge
             - rainloop
             - phpmyadmin
-            - sudoku
-            - monitor
-            - piwik
+            - kraken
 
         depends_on:
             - owncloud
@@ -205,9 +196,7 @@ services:
             - couchpotato
             - deluge
             - phpmyadmin
-            - sudoku
-            - monitor
-            - piwik
+            - kraken
 
         ports:
             - "80:80"

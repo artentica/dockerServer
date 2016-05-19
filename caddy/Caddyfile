@@ -47,26 +47,9 @@ data.florentin-dubois.fr {
     gzip
 }
 
-sudoku.florentin-dubois.fr {
+kraken.florentin-dubois.fr {
     tls server@florentin-dubois.fr
-    proxy / sudoku
+    proxy / kraken
 
     gzip
 }
-
-monitor.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-    proxy / monitor:19999 {
-        websocket
-    }
-
-    gzip
-}
-
-piwik.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-    proxy / piwik
-
-    gzip
-}
-

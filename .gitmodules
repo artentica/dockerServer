@@ -1,3 +1,6 @@
 [submodule "portfolio"]
 	path = portfolio
 	url = https://github.com/FlorentinDUBOIS/portfolio.git
+[submodule "file-manager"]
+	path = file-manager
+	url = https://github.com/FlorentinDUBOIS/file-manager.git
