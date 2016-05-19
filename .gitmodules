@@ -1,6 +1,3 @@
-[submodule "smartsudoku-server"]
-	path = smartsudoku-server
-	url = https://github.com/FlorentinDUBOIS/smartsudoku-server.git
 [submodule "portfolio"]
 	path = portfolio
 	url = https://github.com/FlorentinDUBOIS/portfolio.git
