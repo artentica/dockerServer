@@ -7,7 +7,7 @@ services:
 
         environment:
             - HOSTNAME=florentin-dubois.fr
-            - CONTACT_EMAIL=contact@florentin-dubois.fr
+            - CONTACT_EMAIL=dubois.florentin@live.fr
             - GITHUB_USERNAME=FlorentinDUBOIS
             - GITHUB_PASSWORD=
             - TWITTER_CONSUMER_KEY=
@@ -52,6 +52,9 @@ services:
             - MONGODB_PORT=27017
             - MONGODB_BASE=kraken
             - NODE_ENV=production
+
+        volumes:
+            - /srv:/usr/src/app/mount:rw
 
         expose:
             - "80"
