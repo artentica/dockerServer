@@ -4,6 +4,7 @@ services:
     portfolio:
         container_name: 'portfolio'
         image: florentindubois/infrastructure:portfolio
+        restart: always
 
         environment:
             - HOSTNAME=florentin-dubois.fr
@@ -23,6 +24,7 @@ services:
     mariadb:
         container_name: mariadb
         image: mariadb:latest
+        restart: always
 
         environment:
             - MYSQL_ROOT_PASSWORD=
@@ -39,6 +41,7 @@ services:
     mongodb:
         container_name: mongodb
         image: mongo:latest
+        restart: always
 
         expose:
             - "27017"
@@ -46,6 +49,7 @@ services:
     kraken:
         container_name: kraken
         image: florentindubois/infrastructure:kraken
+        restart: always
 
         environment:
             - MONGODB_HOST=mongodb
@@ -68,6 +72,7 @@ services:
     owncloud:
         container_name: owncloud
         image: owncloud:latest
+        restart: always
 
         expose:
             - "80"
@@ -84,6 +89,7 @@ services:
     deluge:
         container_name: deluge
         image: linuxserver/deluge:latest
+        restart: always
 
         environment:
             - PUID=0
@@ -104,6 +110,7 @@ services:
     sickrage:
         container_name: sickrage
         image: binhex/arch-sickrage:latest
+        restart: always
 
         expose:
             - "8081"
@@ -127,6 +134,7 @@ services:
     couchpotato:
         container_name: couchpotato
         image: linuxserver/couchpotato:latest
+        restart: always
 
         environment:
             - PGID=0
@@ -150,30 +158,13 @@ services:
     rainloop:
         container_name: rainloop
         image: florentindubois/infrastructure:rainloop
+        restart: always
 
         volumes:
             - /srv/rainloop/data:/var/www/html/data
 
         expose:
             - "80"
-
-    phpmyadmin:
-        container_name: phpmyadmin
-        image: phpmyadmin/phpmyadmin
-
-        expose:
-            - "80"
-
-        environment:
-            - PMA_HOST=mariadb
-            - PMA_PORT=3306
-            - PMA_ABSOLUTE_URI=data.florentin-dubois.fr
-
-        links:
-            - mariadb
-
-        depends_on:
-            - mariadb
 
     caddy:
         container_name: caddy
@@ -189,7 +180,6 @@ services:
             - couchpotato
             - deluge
             - rainloop
-            - phpmyadmin
             - kraken
 
         depends_on:
@@ -198,7 +188,6 @@ services:
             - sickrage
             - couchpotato
             - deluge
-            - phpmyadmin
             - kraken
 
         ports:
