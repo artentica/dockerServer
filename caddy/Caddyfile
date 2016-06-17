@@ -40,13 +40,6 @@ rainloop.florentin-dubois.fr {
     gzip
 }
 
-data.florentin-dubois.fr {
-    tls server@florentin-dubois.fr
-    proxy / phpmyadmin
-
-    gzip
-}
-
 kraken.florentin-dubois.fr {
     tls server@florentin-dubois.fr
     proxy / kraken
