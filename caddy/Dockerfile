@@ -1,4 +1,4 @@
-FROM alpine:3.2
+FROM alpine:latest
 MAINTAINER Florentin DUBOIS <contact@florentin-dubois.fr>
 
 RUN apk add --update openssh-client git tar
