@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER Florentin DUBOIS <contact@florentin-dubois.fr>
 
-RUN apk add --update openssh-client git tar
+RUN apk add --update curl openssh-client git tar
 
 RUN curl --silent --show-error --fail --location \
       --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
