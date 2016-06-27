@@ -29,9 +29,6 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=
 
-        ports:
-            - "3305:3306"
-
         expose:
             - "3306"
 
@@ -46,6 +43,9 @@ services:
         expose:
             - "27017"
 
+        volumes:
+            - /srv/mongodb:/data/db
+
     kraken:
         container_name: kraken
         image: florentindubois/infrastructure:kraken
@@ -58,7 +58,7 @@ services:
             - NODE_ENV=production
 
         volumes:
-            - /srv:/usr/src/app/mount:rw
+            - /srv:/usr/src/app/mount
 
         expose:
             - "80"
