@@ -48,7 +48,7 @@ services:
 
     kraken:
         container_name: kraken
-        image: florentindubois/kraken:latest
+        image: florentindubois/kraken:stable
         restart: always
 
         environment:
