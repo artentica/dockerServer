@@ -2,20 +2,20 @@ version: '2'
 
 services:
     portfolio:
-        container_name: 'portfolio'
-        image: florentindubois/infrastructure:portfolio
+        container_name: portfolio
+        image: florentindubois/portfolio:latest
         restart: always
 
         environment:
-            - HOSTNAME=florentin-dubois.fr
-            - CONTACT_EMAIL=dubois.florentin@live.fr
-            - GITHUB_USERNAME=FlorentinDUBOIS
+            - HOSTNAME=
+            - CONTACT_EMAIL=
+            - GITHUB_USERNAME=
             - GITHUB_PASSWORD=
             - TWITTER_CONSUMER_KEY=
             - TWITTER_CONSUMER_SECRET=
             - TWITTER_ACCESS_TOKEN_KEY=
             - TWITTER_ACCESS_TOKEN_SECRET=
-            - TWITTER_USERNAME=FlorentinDUBOIS
+            - TWITTER_USERNAME=
             - NODE_ENV=production
 
         expose:
@@ -48,7 +48,7 @@ services:
 
     kraken:
         container_name: kraken
-        image: florentindubois/infrastructure:kraken
+        image: florentindubois/kraken:latest
         restart: always
 
         environment:
@@ -157,7 +157,7 @@ services:
 
     rainloop:
         container_name: rainloop
-        image: florentindubois/infrastructure:rainloop
+        image: florentindubois/rainloop:latest
         restart: always
 
         volumes:
@@ -168,7 +168,7 @@ services:
 
     caddy:
         container_name: caddy
-        image: florentindubois/infrastructure:caddy
+        image: florentindubois/caddy:latest
 
         volumes:
             - /srv/caddy:/root/.caddy
