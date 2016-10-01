@@ -165,27 +165,6 @@ services:
 
         expose:
             - "80"
-    
-    gitlab:
-        container_name: gitlab
-        image: gitlab/gitlab-ce
-        restart: always
-
-        hostname: gitlab.florentin-dubois.fr
-
-        environment:
-            - GITLAB_OMNIBUS_CONFIG="external_url 'https://gitlab.florentin-dubois.fr'"
-
-        volumes:
-            - /srv/gitlab/config:/etc/gitlab
-            - /srv/gitlab/logs:/var/log/gitlab
-            - /srv/gitlab/data:/var/opt/gitlab
-
-        expose:
-            - "80"
-
-        ports:
-            - "8022:22"
 
     caddy:
         container_name: caddy
