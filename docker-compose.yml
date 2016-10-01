@@ -174,8 +174,7 @@ services:
         hostname: gitlab.florentin-dubois.fr
 
         environment:
-            - GITLAB_OMNIBUS_CONFIG: |
-                external_url 'https://gitlab.florentin-dubois.fr'
+            - GITLAB_OMNIBUS_CONFIG="external_url 'https://gitlab.florentin-dubois.fr'"
 
         volumes:
             - /srv/gitlab/config:/etc/gitlab
