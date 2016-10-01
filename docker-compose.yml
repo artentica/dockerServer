@@ -181,7 +181,6 @@ services:
             - deluge
             - rainloop
             - kraken
-            - gitlab
 
         depends_on:
             - owncloud
@@ -190,7 +189,6 @@ services:
             - couchpotato
             - deluge
             - kraken
-            - gitlab
 
         ports:
             - "80:80"
