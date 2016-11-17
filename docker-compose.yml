@@ -7,15 +7,6 @@ services:
         restart: always
 
         environment:
-            - HOSTNAME=
-            - CONTACT_EMAIL=
-            - GITHUB_USERNAME=
-            - GITHUB_PASSWORD=
-            - TWITTER_CONSUMER_KEY=
-            - TWITTER_CONSUMER_SECRET=
-            - TWITTER_ACCESS_TOKEN_KEY=
-            - TWITTER_ACCESS_TOKEN_SECRET=
-            - TWITTER_USERNAME=
             - NODE_ENV=production
 
         expose:
