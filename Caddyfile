@@ -48,3 +48,10 @@ kraken.florentin-dubois.fr {
 
     gzip
 }
+
+oil.florentin-dubois.fr {
+    tls server@florentin-dubois.fr
+    proxy / oil
+
+    gzip
+}
