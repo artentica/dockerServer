@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Florentin DUBOIS <contact@florentin-dubois.fr>
+MAINTAINER Vincent Riouallon <contact@vincentriouallon.com>
 
 RUN apk add --update curl openssh-client git tar
 
