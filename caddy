@@ -1,0 +1,37 @@
+cloud.vincentriouallon.com {
+    tls server@vincentriouallon.com
+    proxy / owncloud {
+        websocket
+    }
+
+    gzip
+}
+
+torrent.vincentriouallon.com {
+    tls server@vincentriouallon.com
+    proxy / deluge:8112
+    
+    gzip
+}
+
+tvshow.vincentriouallon.com {
+    tls server@vincentriouallon.com
+    proxy / sickrage:8081
+
+    gzip
+}
+
+movie.vincentriouallon.com {
+    tls server@vincentriouallon.com
+    proxy / couchpotato:5050
+
+    gzip
+}
+
+files.vincentriouallon.com {
+    tls server@vincentriouallon.com
+    proxy / kraken
+
+    gzip
+}
+
