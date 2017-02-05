@@ -96,6 +96,8 @@ services:
             - "8081"
 
         volumes:
+            - /srv/deluge/downloads:/downloads
+            - /srv/tvshow:/tvshow
             - /srv/sickrage/media:/media
             - /srv/sickrage/data:/data
             - /srv/sickrage/config:/config
@@ -122,6 +124,8 @@ services:
 
         volumes:
             - /srv/couchpotato/config:/config
+            - /srv/sickrage/movie:/movie
+	    - /srv/deluge/downloads:/downloads
             - /srv/couchpotato/downloads:/downloads
             - /srv/couchpotato/movies:/movies
             - /etc/localtime:/etc/localtime:ro
@@ -137,7 +141,7 @@ services:
 
     caddy:
         container_name: caddy
-        image: florentindubois/caddy:latest
+        image: artentica/caddy:latest
 
         volumes:
             - /srv/caddy:/root/.caddy
