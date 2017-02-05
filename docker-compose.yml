@@ -125,7 +125,7 @@ services:
         volumes:
             - /srv/couchpotato/config:/config
             - /srv/sickrage/movie:/movie
-	    - /srv/deluge/downloads:/downloads
+            - /srv/deluge/downloads:/downloads
             - /srv/couchpotato/downloads:/downloads
             - /srv/couchpotato/movies:/movies
             - /etc/localtime:/etc/localtime:ro
