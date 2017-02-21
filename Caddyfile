@@ -1,4 +1,4 @@
-cloud.vincentriouallon.com, www.cloud.vincentriouallon.com {
+cloud.vincentriouallon.com, www.cloud.vincentriouallon.com, 163.172.219.132 {
     tls server@vincentriouallon.com
     proxy / owncloud {
         websocket
