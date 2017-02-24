@@ -11,4 +11,4 @@ WORKDIR /srv
 
 ADD Caddyfile /etc/Caddyfile
 
-CMD ["/usr/bin/caddy", "--conf", "/etc/Caddyfile"]
+CMD ["/usr/bin/caddy","-http2=false", "--conf", "/etc/Caddyfile"]
