@@ -2,7 +2,7 @@ cloud.vincentriouallon.com, www.cloud.vincentriouallon.com{
     tls server@vincentriouallon.com
     proxy / owncloud {
         websocket
-        max_fail 0
+        max_fails 0
     }
 
     gzip
@@ -11,7 +11,7 @@ cloud.vincentriouallon.com, www.cloud.vincentriouallon.com{
 www.torrent.vincentriouallon.com , torrent.vincentriouallon.com {
     tls server@vincentriouallon.com
     proxy / deluge:8112{
-        max_fail 0
+        max_fails 0
     }
     
     gzip
@@ -20,7 +20,7 @@ www.torrent.vincentriouallon.com , torrent.vincentriouallon.com {
 www.tvshow.vincentriouallon.com, tvshow.vincentriouallon.com {
     tls server@vincentriouallon.com
     proxy / sickrage:8081{
-        max_fail 0
+        max_fails 0
     }
 
     gzip
@@ -29,7 +29,7 @@ www.tvshow.vincentriouallon.com, tvshow.vincentriouallon.com {
 www.movie.vincentriouallon.com, movie.vincentriouallon.com {
     tls server@vincentriouallon.com
     proxy / couchpotato:5050{
-        max_fail 0
+        max_fails 0
     }
 
     gzip
@@ -38,7 +38,7 @@ www.movie.vincentriouallon.com, movie.vincentriouallon.com {
 www.files.vincentriouallon.com, files.vincentriouallon.com {
     tls server@vincentriouallon.com
     proxy / kraken{
-        max_fail 0
+        max_fails 0
     }
 
     gzip
