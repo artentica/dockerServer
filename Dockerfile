@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 MAINTAINER Vincent Riouallon <contact@vincentriouallon.com>
 
 RUN apk add --update curl openssh-client git tar
