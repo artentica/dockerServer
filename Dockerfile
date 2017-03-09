@@ -1,19 +1,15 @@
-FROM golang:latest
-MAINTAINER Vincent Riouallon <contact@vincentriouallon.com>
+FROM alpine:latest
+MAINTAINER Vincent RIOUALLON <contact@vincentriouallon.com>
 
-RUN go get github.com/mholt/caddy
-
-WORKDIR $GOPATH/src/github.com/mholt/caddy
-
-RUN caddy/build.bash /usr/bin/caddy
-
+RUN apk add --update curl openssh-client git tar
+RUN curl --silent --show-error --fail --location --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - "https://caddyserver.com/download/build?os=linux&arch=amd64&features=git%2Covh" | tar --no-same-owner -C /usr/bin/ -xz caddy
 RUN chmod 0755 /usr/bin/caddy
 
-EXPOSE 80 443 2015
+ADD Caddyfile /etc/Caddyfile
 
-
+VOLUME /root/.caddy
 WORKDIR /srv
 
-ADD Caddyfile /etc/Caddyfile
+EXPOSE 80 443 2015
 
 CMD ["/usr/bin/caddy", "--conf", "/etc/Caddyfile"]
