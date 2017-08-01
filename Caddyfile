@@ -10,7 +10,7 @@ cloud.vincentriouallon.com, www.cloud.vincentriouallon.com {
 www.torrent.vincentriouallon.com , torrent.vincentriouallon.com {
     tls server@vincentriouallon.com
     proxy / deluge:8112
-    
+
     gzip
 }
 
@@ -30,7 +30,23 @@ www.movie.vincentriouallon.com, movie.vincentriouallon.com {
 
 www.files.vincentriouallon.com, files.vincentriouallon.com {
     tls server@vincentriouallon.com
-    proxy / kraken
+    basicauth / bmw blablabla123
+    proxy / h5ai
 
     gzip
 }
+
+
+www.plex.vincentriouallon.com, plex.vincentriouallon.com {
+    tls server@vincentriouallon.com
+    proxy / plex:32400
+
+    gzip
+}
+
+www.vincentriouallon.com, vincentriouallon.com {
+    tls server@vincentriouallon.com
+    root /var/www/html
+    gzip
+}
+
