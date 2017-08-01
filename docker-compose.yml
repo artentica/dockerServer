@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
     mariadb:
@@ -7,6 +7,9 @@ services:
         restart: always
 
         environment:
+            - MYSQL_DATABASE=
+            - MYSQL_USER=
+            - MYSQL_PASSWORD=
             - MYSQL_ROOT_PASSWORD=
 
         expose:
@@ -15,39 +18,17 @@ services:
         volumes:
             - /srv/mariadb:/var/lib/mysql
 
-    mongodb:
-        container_name: mongodb
-        image: mongo:latest
+    h5ai:
+        container_name: h5ai
+        image: clue/h5ai
         restart: always
 
-        expose:
-            - "27017"
-
         volumes:
-            - /srv/mongodb:/data/db
-
-    kraken:
-        container_name: kraken
-        image: florentindubois/kraken:stable
-        restart: always
-
-        environment:
-            - MONGODB_HOST=mongodb
-            - MONGODB_PORT=27017
-            - MONGODB_BASE=kraken
-            - NODE_ENV=production
-
-        volumes:
-            - /srv:/usr/src/app/mount
+            - /srv:/var/www
 
         expose:
             - "80"
 
-        links:
-            - mongodb
-
-        depends_on:
-            - mongodb
 
     owncloud:
         container_name: owncloud
@@ -91,6 +72,10 @@ services:
         container_name: sickrage
         image: binhex/arch-sickrage:latest
         restart: always
+        deploy:
+            resources:
+                limits:
+                    cpus: "1"
 
         expose:
             - "8081"
@@ -124,7 +109,7 @@ services:
 
         volumes:
             - /srv/couchpotato/config:/config
-            - /srv/sickrage/movie:/movie
+              #- /srv/sickrage/movie:/movie
             - /srv/deluge/downloads:/downloads
             - /srv/couchpotato/downloads:/downloads
             - /srv/couchpotato/movies:/movies
@@ -139,27 +124,61 @@ services:
         depends_on:
             - deluge
 
+    plex:
+       container_name: plex
+       image: timhaak/plex:latest
+       restart: always
+
+       volumes:
+           - /srv/plex/config:/config
+           - /srv/tvshow:/data/tvshows
+
+       environment:
+            - PUID=0
+            - PGID=0
+
+       expose:
+           - "32400"
+
+       ports:
+           - 32400:32400/tcp
+           - 1900:1900/udp
+           - 8324:8324/tcp
+           - 32410:32410/tcp
+           - 32411:32411/tcp
+           - 32412:32412/tcp
+           - 32413:32413/tcp
+           - 32414:32414/tcp
+
+
     caddy:
         container_name: caddy
-        image: artentica/caddy:latest
+        build: ../caddy
+
+        image: caddy
 
         volumes:
             - /srv/caddy:/root/.caddy
+            - /srv/www/portfolioBryan:/var/www/html
+
 
         links:
             - owncloud
             - sickrage
             - couchpotato
             - deluge
-            - kraken
+            - h5ai
+            - plex
 
         depends_on:
             - owncloud
             - sickrage
             - couchpotato
             - deluge
-            - kraken
+            - h5ai
+            - plex
 
         ports:
             - "80:80"
             - "443:443"
+
