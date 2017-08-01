@@ -30,7 +30,7 @@ www.movie.vincentriouallon.com, movie.vincentriouallon.com {
 
 www.files.vincentriouallon.com, files.vincentriouallon.com {
     tls server@vincentriouallon.com
-    basicauth / bmw blablabla123
+    basicauth / name password
     proxy / h5ai
 
     gzip
