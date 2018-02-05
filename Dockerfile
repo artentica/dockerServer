@@ -1,13 +1,12 @@
-FROM florentindubois/archlinux-go:latest
-MAINTAINER Vincent RIOUALLON <contact@vincentriouallon.com>
+FROM alpine:latest
 
-RUN pacman -Syyuu curl openssh git tar gzip --noconfirm --needed
-RUN go get github.com/mholt/caddy/caddy
+RUN apk add --no-cache openssh-client bash git tar curl
+RUN curl https://getcaddy.com | bash -s personal
 
-ADD Caddyfile /etc/Caddyfile
-
-VOLUME /root/.caddy
+COPY Caddyfile /etc/Caddyfile
 
 EXPOSE 80 443 2015
+VOLUME /srv/http
 
-CMD ["/root/go/bin/caddy", "--conf", "/etc/Caddyfile"]
+ENTRYPOINT ["/usr/local/bin/caddy"]
+CMD ["--conf", "/etc/Caddyfile"]
