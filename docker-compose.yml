@@ -5,45 +5,36 @@ services:
         container_name: mariadb
         image: mariadb:latest
         restart: always
-
         environment:
             - MYSQL_DATABASE=
             - MYSQL_USER=
             - MYSQL_PASSWORD=
             - MYSQL_ROOT_PASSWORD=
-
         expose:
             - "3306"
-
         volumes:
             - /srv/mariadb:/var/lib/mysql
 
     h5ai:
         container_name: h5ai
-        image: clue/h5ai
+        image: artentica/h5ai
         restart: always
-
         volumes:
             - /srv:/var/www
-
         expose:
             - "80"
 
-
-    owncloud:
-        container_name: owncloud
-        image: owncloud:latest
+    
+    nextcloud:
+        container_name: nextcloud
+        image: nextcloud:latest
         restart: always
-
         expose:
             - "80"
-
         volumes:
-            - /srv/owncloud:/var/www/html
-
+            - /srv/nextcloud:/var/www/html
         links:
             - mariadb
-
         depends_on:
             - mariadb
 
@@ -51,134 +42,153 @@ services:
         container_name: deluge
         image: linuxserver/deluge:latest
         restart: always
-
         environment:
             - PUID=0
             - PGID=0
-
         volumes:
             - /srv/deluge/downloads:/downloads
             - /srv/deluge/config:/config
             - /etc/localtime:/etc/localtime:ro
-
         expose:
             - "8112"
             - "58846"
-
         ports:
             - "7000-7009:7000-7009"
+ 
 
-    sickrage:
-        container_name: sickrage
-        image: binhex/arch-sickrage:latest
+    sonarr:
+        container_name: sonarr
+        image: linuxserver/sonarr
         restart: always
-        deploy:
-            resources:
-                limits:
-                    cpus: "1"
-
-        expose:
-            - "8081"
-
+        ports:
+          - 8989:8989
         volumes:
-            - /srv/deluge/downloads:/downloads
-            - /srv/tvshow:/tvshow
-            - /srv/sickrage/media:/media
-            - /srv/sickrage/data:/data
-            - /srv/sickrage/config:/config
-            - /etc/localtime:/etc/localtime:ro
+          # In order to the container uses the same date which is in the host, it is necessary to share /etc/localtime file
+          - /etc/localtime:/etc/localtime:ro
+          - /dev/rtc:/dev/rtc:ro
+          - /srv/sonarr/config:/config
+          - /srv/deluge/downloads:/downloads
+          - /srv/tvshow:/tv
+        links:
+            - deluge
+        depends_on:
+            - deluge
 
+    radarr:
+        image: linuxserver/radarr
+        restart: always
+        expose:
+            - "7878"
+        ports:
+            - "7878:7878"
         environment:
-            - PUID=0
-            - GUID=0
-
+            - PUID=1000
+            - PGID=1000
+        volumes:
+            - /srv/deluge/downloads:/downloads:rw
+            - /srv/radarr/config:/config:rw
+            - /srv/movie:/movies
+            - /etc/localtime:/etc/localtime:ro
         links:
             - deluge
 
         depends_on:
             - deluge
 
-    couchpotato:
-        container_name: couchpotato
-        image: linuxserver/couchpotato:latest
-        restart: always
-
-        environment:
-            - PGID=0
-            - PUID=0
-
-        volumes:
-            - /srv/couchpotato/config:/config
-              #- /srv/sickrage/movie:/movie
-            - /srv/deluge/downloads:/downloads
-            - /srv/couchpotato/downloads:/downloads
-            - /srv/couchpotato/movies:/movies
-            - /etc/localtime:/etc/localtime:ro
-
-        expose:
-            - "5050"
-
-        links:
-            - deluge
-
-        depends_on:
-            - deluge
-
-    plex:
-       container_name: plex
-       image: timhaak/plex:latest
+    jackett:
+       container_name: jackett
+       image: linuxserver/jackett:latest
        restart: always
-
-       volumes:
-           - /srv/plex/config:/config
-           - /srv/tvshow:/data/tvshows
-
        environment:
-            - PUID=0
-            - PGID=0
-
-       expose:
-           - "32400"
-
+           - PGID=1000
+           - PUID=1000
+           - TZ=Europe/London
+       volumes:
+           - /srv/jackett/config:/config
+           - /srv/jackett/downloads:/downloads
        ports:
-           - 32400:32400/tcp
-           - 1900:1900/udp
-           - 8324:8324/tcp
-           - 32410:32410/tcp
-           - 32411:32411/tcp
-           - 32412:32412/tcp
-           - 32413:32413/tcp
-           - 32414:32414/tcp
+         - "9117:9117"
+        
+    emby:
+        container_name: emby
+        image: emby/embyserver
+        restart: always
+        ports:
+            - 8096:8096
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - /srv/emby/config:/config
+            - /srv/tvshow:/media/tvshow
+            - /srv/movie:/media/movie
+        environment:
+            - VIRTUAL_PORT=8096
+            - VIRTUAL_HOST=emby.htpc
+            - AUTO_UPDATES_ON=true
+            - APP_UID=1000
+            - APP_GID=1000
+
+    postgres:
+        image: postgres
+        restart: always
+        environment:
+           - POSTGRES_PASSWORD=editiondusoir
+           - POSTGRES_USER=eds
+           - POSTGRES_DB=surveyV2
+        volumes:
+           - /srv/postgres:/var/lib/postgresql/data
+        ports:
+          - "5432:5432"
+        expose:
+          - "5432"
+
+    sqlpanel:
+        image: adminer
+        container_name: sqlpanel
+        restart: always
+        ports:
+          - 8080:8080
+        links:
+          - postgres
+        depends_on:
+          - postgres
+
+    filebrowser:
+        container_name: filebrowser
+        image: hacdias/filemanager:latest
+        volumes:
+          - /srv/filebrowser/config.json:/config.json
+          - /srv:/srv
+          - /srv/filebrowser/database.db:/etc/database.db
+        expose:
+          - 80
 
 
     caddy:
         container_name: caddy
         build: ../caddy
-
         image: caddy
-
         volumes:
             - /srv/caddy:/root/.caddy
-            - /srv/www/portfolioBryan:/var/www/html
-
-
+            - /srv/www/:/var/www/html
         links:
-            - owncloud
-            - sickrage
-            - couchpotato
+            - nextcloud
+            - radarr
             - deluge
+            - sonarr
             - h5ai
-            - plex
+            - filebrowser
+            - emby
+            - sqlpanel
 
         depends_on:
-            - owncloud
-            - sickrage
-            - couchpotato
+            - nextcloud
+            - sonarr
+            - radarr
             - deluge
             - h5ai
-            - plex
-
+            - filebrowser
+            - emby
+            - sqlpanel
         ports:
             - "80:80"
             - "443:443"
-
