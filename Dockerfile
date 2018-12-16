@@ -9,4 +9,4 @@ EXPOSE 80 443 2015
 VOLUME /srv/http
 
 ENTRYPOINT ["/usr/local/bin/caddy"]
-CMD ["--conf", "/etc/Caddyfile"]
+CMD ["--conf", "/etc/Caddyfile", "--agree=true"]
