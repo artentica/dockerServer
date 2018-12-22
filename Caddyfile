@@ -7,44 +7,44 @@ cloud.vincentriouallon.com, www.cloud.vincentriouallon.com {
     gzip
 }
 
-www.torrent.vincentriouallon.com , torrent.vincentriouallon.com {
-    tls server@vincentriouallon.com
+www.torrent.vincentriouallon.ovh , torrent.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
     proxy / deluge:8112
 
     gzip
 }
 
 
-www.jackett.vincentriouallon.com, jackett.vincentriouallon.com {
-    tls server@vincentriouallon.com
+www.jackett.vincentriouallon.ovh, jackett.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
     proxy / jackett:9117
 
     gzip
 }
 
-www.tvshow.vincentriouallon.com, tvshow.vincentriouallon.com {
-    tls server@vincentriouallon.com
+www.tvshow.vincentriouallon.ovh, tvshow.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
     proxy / sonarr:8989
 
     gzip
 }
 
-www.movie.vincentriouallon.com, movie.vincentriouallon.com {
-    tls server@vincentriouallon.com
+www.movie.vincentriouallon.ovh, movie.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
     proxy / radarr:7878
 
     gzip
 }
 
-www.files2.vincentriouallon.com, files2.vincentriouallon.com {
-    tls server@vincentriouallon.com
+www.files2.vincentriouallon.ovh, files2.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
     proxy / filebrowser
 
     gzip
 }
 
-www.files.vincentriouallon.com, files.vincentriouallon.com {
-    tls server@vincentriouallon.com
+www.files.vincentriouallon.ovh, files.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
     basicauth / user incorrect
     proxy / h5ai
 	
