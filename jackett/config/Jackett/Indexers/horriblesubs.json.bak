@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sitelink",
+    "type": "inputstring",
+    "name": "Site Link",
+    "value": "http://horriblesubs.info/"
+  },
+  {
+    "id": "cookieheader",
+    "type": "hiddendata",
+    "name": "CookieHeader",
+    "value": "__cfduid=d6f162f95fd57a305766c690821de657b1523360168"
+  },
+  {
+    "id": "lasterror",
+    "type": "hiddendata",
+    "name": "LastError",
+    "value": ""
+  },
+  {
+    "id": "prepend[horriblesubs]totorrenttitle",
+    "type": "inputbool",
+    "name": "Prepend [Horriblesubs] to torrent title",
+    "value": false
+  }
+]
