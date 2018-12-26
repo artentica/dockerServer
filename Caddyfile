@@ -60,29 +60,3 @@ www.stream.vincentriouallon.com, stream.vincentriouallon.com {
 
     gzip
 }
-
-www.vincentriouallon.com, vincentriouallon.com {
-    tls server@vincentriouallon.com
-    root /var/www/html/portfolio
-    gzip
-}
-
-www.demo.vincentriouallon.com, demo.vincentriouallon.com {
-    tls server@vincentriouallon.com
-    root /var/www/html/reactDemo
-    gzip
-}
-
-www.sqlpanel.vincentriouallon.com, sqlpanel.vincentriouallon.com {
-    tls server@vincentriouallon.com
-    proxy / sqlpanel:8080
-	
-    gzip
-}
-
-www.sql.vincentriouallon.com, sql.vincentriouallon.com {
-    tls server@vincentriouallon.com
-    proxy / postgres:5432
-	
-    gzip
-}
