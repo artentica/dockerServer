@@ -1,5 +1,5 @@
-cloud.vincentriouallon.com, www.cloud.vincentriouallon.com {
-    tls server@vincentriouallon.com
+cloud.vincentriouallon.ovh, www.cloud.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
     proxy / nextcloud {
         websocket
     }
