@@ -2,6 +2,7 @@ cloud.vincentriouallon.ovh, www.cloud.vincentriouallon.ovh {
     tls server@vincentriouallon.ovh
     proxy / nextcloud {
         websocket
+   	transparent
     }
 
     gzip
