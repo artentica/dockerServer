@@ -37,24 +37,15 @@ www.movie.vincentriouallon.ovh, movie.vincentriouallon.ovh {
     gzip
 }
 
-www.files2.vincentriouallon.ovh, files2.vincentriouallon.ovh {
+www.files.vincentriouallon.ovh, files2.vincentriouallon.ovh {
     tls server@vincentriouallon.ovh
     proxy / filebrowser
 
     gzip
 }
 
-www.files.vincentriouallon.ovh, files.vincentriouallon.ovh {
+www.stream.vincentriouallon.ovh, stream.vincentriouallon.ovh {
     tls server@vincentriouallon.ovh
-    basicauth / user incorrect
-    proxy / h5ai
-	
-    gzip
-}
-
-
-www.stream.vincentriouallon.com, stream.vincentriouallon.com {
-    tls server@vincentriouallon.com
     proxy / emby:8096 {
         websocket
     }
