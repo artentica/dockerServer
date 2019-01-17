@@ -15,16 +15,6 @@ services:
         volumes:
             - /srv/mariadb:/var/lib/mysql
 
-    h5ai:
-        container_name: h5ai
-        image: artentica/h5ai
-        restart: always
-        volumes:
-            - /srv:/var/www
-        expose:
-            - "80"
-
-    
     nextcloud:
         container_name: nextcloud
         image: nextcloud:latest
@@ -175,7 +165,6 @@ services:
             - radarr
             - deluge
             - sonarr
-            - h5ai
             - filebrowser
             - emby
             - sqlpanel
@@ -185,7 +174,6 @@ services:
             - sonarr
             - radarr
             - deluge
-            - h5ai
             - filebrowser
             - emby
             - sqlpanel
