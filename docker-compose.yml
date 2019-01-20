@@ -6,10 +6,10 @@ services:
         image: mariadb:latest
         restart: always
         environment:
-            - MYSQL_DATABASE=
-            - MYSQL_USER=
-            - MYSQL_PASSWORD=
-            - MYSQL_ROOT_PASSWORD=
+            - MYSQL_DATABASE=${MARIA_DB}
+            - MYSQL_USER=${MARIA_USER}
+            - MYSQL_PASSWORD=${MARIA_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MARIA_ROOT_PASSWORD}
         expose:
             - "3306"
         volumes:
