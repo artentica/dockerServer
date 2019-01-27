@@ -37,7 +37,7 @@ www.movie.vincentriouallon.ovh, movie.vincentriouallon.ovh {
     gzip
 }
 
-www.files.vincentriouallon.ovh, files2.vincentriouallon.ovh {
+www.files.vincentriouallon.ovh, files.vincentriouallon.ovh {
     tls server@vincentriouallon.ovh
     proxy / filebrowser
 
