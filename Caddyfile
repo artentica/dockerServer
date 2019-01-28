@@ -18,7 +18,9 @@ www.torrent.vincentriouallon.ovh , torrent.vincentriouallon.ovh {
 
 www.jackett.vincentriouallon.ovh, jackett.vincentriouallon.ovh {
     tls server@vincentriouallon.ovh
-    proxy / jackett:9117
+    proxy / jackett:9117 {
+   	transparent
+    }
 
     gzip
 }
