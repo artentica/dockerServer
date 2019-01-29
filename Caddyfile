@@ -54,3 +54,11 @@ www.stream.vincentriouallon.ovh, stream.vincentriouallon.ovh {
 
     gzip
 }
+
+www.portainer.vincentriouallon.ovh, portainer.vincentriouallon.ovh {
+  tls server@vincentriouallon.ovh
+  proxy / portainer:9000 {
+    transparent
+    websocket
+  }
+}
