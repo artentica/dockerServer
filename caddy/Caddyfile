@@ -1,0 +1,64 @@
+cloud.vincentriouallon.ovh, www.cloud.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
+    proxy / nextcloud {
+        websocket
+   	transparent
+    }
+
+    gzip
+}
+
+www.torrent.vincentriouallon.ovh , torrent.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
+    proxy / deluge:8112
+
+    gzip
+}
+
+
+www.jackett.vincentriouallon.ovh, jackett.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
+    proxy / jackett:9117 {
+   	transparent
+    }
+
+    gzip
+}
+
+www.tvshow.vincentriouallon.ovh, tvshow.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
+    proxy / sonarr:8989
+
+    gzip
+}
+
+www.movie.vincentriouallon.ovh, movie.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
+    proxy / radarr:7878
+
+    gzip
+}
+
+www.files.vincentriouallon.ovh, files.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
+    proxy / filebrowser
+
+    gzip
+}
+
+www.stream.vincentriouallon.ovh, stream.vincentriouallon.ovh {
+    tls server@vincentriouallon.ovh
+    proxy / emby:8096 {
+        websocket
+    }
+
+    gzip
+}
+
+www.portainer.vincentriouallon.ovh, portainer.vincentriouallon.ovh {
+  tls server@vincentriouallon.ovh
+  proxy / portainer:9000 {
+    transparent
+    websocket
+  }
+}
