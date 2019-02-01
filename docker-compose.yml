@@ -39,14 +39,14 @@ services:
             - /srv/deluge/downloads:/downloads
             - /srv/deluge/config:/config
             - /etc/localtime:/etc/localtime:ro
-        links: 
+        links:
             - portainer
         expose:
             - "8112"
             - "58846"
         ports:
             - "7000-7009:7000-7009"
- 
+
 
     sonarr:
         container_name: sonarr
@@ -55,7 +55,6 @@ services:
         ports:
           - 8989:8989
         volumes:
-          # In order to the container uses the same date which is in the host, it is necessary to share /etc/localtime file
           - /etc/localtime:/etc/localtime:ro
           - /dev/rtc:/dev/rtc:ro
           - /srv/sonarr/config:/config
@@ -101,7 +100,7 @@ services:
            - /srv/jackett/downloads:/downloads
        ports:
          - "9117:9117"
-        
+
     emby:
         container_name: emby
         image: emby/embyserver
