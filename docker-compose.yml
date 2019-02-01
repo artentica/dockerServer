@@ -132,10 +132,10 @@ services:
 
     caddy:
         container_name: caddy
-        build: ../caddy
-        image: caddy
+        image: abiosoft/caddy
         volumes:
             - /srv/caddy:/root/.caddy
+            - ./Caddyfile:/etc/Caddyfile
             - /srv/www/:/var/www/html
         links:
             - nextcloud
@@ -153,9 +153,8 @@ services:
             - filebrowser
             - emby
         ports:
-            - "80:80"
-            - "443:443"
-
+            - 80:80
+            - 443:443
 
     portainer:
         container_name: "portainer"
