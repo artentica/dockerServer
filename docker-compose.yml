@@ -158,19 +158,10 @@ services:
             - "443:443"
 
 
-###################TEST#######################
-
-    templates:
-        image: portainer/templates
-        container_name: "portainer-templates"
-        links: 
-            - portainer
-
     portainer:
+        container_name: "portainer"
         image: portainer/portainer
         restart: always
-        container_name: "portainer-app"
-        #Automatically choose 'Manage the Docker instance where Portainer is running' by adding <--host=unix:///var/run/docker.sock> to the command
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - /srv/portainer/data:/data
