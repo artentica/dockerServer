@@ -130,6 +130,7 @@ services:
 
     caddy:
         container_name: caddy
+        # freeze in 0.11.0 because in higher version (0.11.1 & 0.11.2) a bug stopping ACME is still present
         image: abiosoft/caddy:0.11.0
         environment:
             - ACME_AGREE=true
@@ -157,7 +158,7 @@ services:
             - 443:443
 
     portainer:
-        container_name: "portainer"
+        container_name: portainer
         image: portainer/portainer
         restart: always
         volumes:
