@@ -1,5 +1,5 @@
-cloud.vincentriouallon.ovh, www.cloud.vincentriouallon.ovh {
-    tls server@vincentriouallon.ovh
+cloud.vincentriouallon.com, www.cloud.vincentriouallon.com {
+    tls server@vincentriouallon.com
     proxy / nextcloud {
         websocket
    	transparent
@@ -8,16 +8,16 @@ cloud.vincentriouallon.ovh, www.cloud.vincentriouallon.ovh {
     gzip
 }
 
-www.torrent.vincentriouallon.ovh , torrent.vincentriouallon.ovh {
-    tls server@vincentriouallon.ovh
+www.torrent.vincentriouallon.com , torrent.vincentriouallon.com {
+    tls server@vincentriouallon.com
     proxy / deluge:8112
 
     gzip
 }
 
 
-www.jackett.vincentriouallon.ovh, jackett.vincentriouallon.ovh {
-    tls server@vincentriouallon.ovh
+www.jackett.vincentriouallon.com, jackett.vincentriouallon.com {
+    tls server@vincentriouallon.com
     proxy / jackett:9117 {
    	transparent
     }
@@ -25,29 +25,29 @@ www.jackett.vincentriouallon.ovh, jackett.vincentriouallon.ovh {
     gzip
 }
 
-www.tvshow.vincentriouallon.ovh, tvshow.vincentriouallon.ovh {
-    tls server@vincentriouallon.ovh
+www.tvshow.vincentriouallon.com, tvshow.vincentriouallon.com {
+    tls server@vincentriouallon.com
     proxy / sonarr:8989
 
     gzip
 }
 
-www.movie.vincentriouallon.ovh, movie.vincentriouallon.ovh {
-    tls server@vincentriouallon.ovh
+www.movie.vincentriouallon.com, movie.vincentriouallon.com {
+    tls server@vincentriouallon.com
     proxy / radarr:7878
 
     gzip
 }
 
-www.files.vincentriouallon.ovh, files.vincentriouallon.ovh {
-    tls server@vincentriouallon.ovh
+www.files.vincentriouallon.com, files.vincentriouallon.com {
+    tls server@vincentriouallon.com
     proxy / filebrowser
 
     gzip
 }
 
-www.stream.vincentriouallon.ovh, stream.vincentriouallon.ovh {
-    tls server@vincentriouallon.ovh
+www.stream.vincentriouallon.com, stream.vincentriouallon.com {
+    tls server@vincentriouallon.com
     proxy / emby:8096 {
         websocket
     }
@@ -55,8 +55,8 @@ www.stream.vincentriouallon.ovh, stream.vincentriouallon.ovh {
     gzip
 }
 
-www.portainer.vincentriouallon.ovh, portainer.vincentriouallon.ovh {
-  tls server@vincentriouallon.ovh
+www.portainer.vincentriouallon.com, portainer.vincentriouallon.com {
+  tls server@vincentriouallon.com
   proxy / portainer:9000 {
     transparent
     websocket
