@@ -39,8 +39,6 @@ services:
             - /srv/deluge/downloads:/downloads
             - /srv/deluge/config:/config
             - /etc/localtime:/etc/localtime:ro
-        links:
-            - portainer
         expose:
             - "8112"
             - "58846"
