@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+    caddy:
+        container_name: caddy
+        # freeze in 0.11.0 because in higher version (0.11.1 & 0.11.2) a bug stopping ACME is still present
+        image: abiosoft/caddy:0.11.0
+        environment:
+            - ACME_AGREE=true
+        volumes:
+            - /srv/caddy:/root/.caddy
+            - ./Caddyfile:/etc/Caddyfile
+            - /srv/www/:/var/www/html
+        links:
+            - nextcloud
+            - radarr
+            - deluge
+            - sonarr
+            - filebrowser
+            - emby
+
+        depends_on:
+            - nextcloud
+            - sonarr
+            - radarr
+            - deluge
+            - filebrowser
+            - emby
+        ports:
+            - 80:80
+            - 443:443
