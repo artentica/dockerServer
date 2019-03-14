@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+    sonarr:
+        container_name: sonarr
+        image: linuxserver/sonarr
+        restart: always
+        ports:
+          - 8989:8989
+        volumes:
+          - /etc/localtime:/etc/localtime:ro
+          - /dev/rtc:/dev/rtc:ro
+          - /srv/sonarr/config:/config
+          - /srv/deluge/downloads:/downloads
+          - /srv/tvshow:/tv
+        links:
+            - deluge
+        depends_on:
+            - deluge
