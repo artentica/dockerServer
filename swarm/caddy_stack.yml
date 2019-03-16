@@ -1,0 +1,42 @@
+version: '3.5'
+
+services:
+
+    caddy:
+        # freeze in 0.11.0 because in higher version (0.11.1 & 0.11.2) a bug stopping ACME is still present
+        image: abiosoft/caddy:0.11.0
+        environment:
+            - ACME_AGREE=true
+        volumes:
+            - /srv/caddy:/root/.caddy
+            - ./Caddyfile:/etc/Caddyfile
+            - /srv/www/:/var/www/html
+              #links:
+              # - nextcloud
+              #- radarr
+              # - deluge
+              # - sonarr
+              #- filebrowser
+              #- emby
+        # networks:
+        #     - caddy_network
+
+              #depends_on:
+              #- nextcloud
+              #- sonarr
+              #- radarr
+              #- deluge
+              #- filebrowser
+              #- emby
+        ports:
+            - 80:80
+            - 443:443
+
+        # deploy:
+        #     mode: replicated
+        #     replicas: 1
+# networks:
+#     caddy_network:
+#         name: dmz
+#         driver: overlay
+#         attachable: true
