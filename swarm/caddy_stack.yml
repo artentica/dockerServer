@@ -18,8 +18,8 @@ services:
               # - sonarr
               #- filebrowser
               #- emby
-        # networks:
-        #     - caddy_network
+        networks:
+            - caddy_network
 
               #depends_on:
               #- nextcloud
@@ -32,11 +32,11 @@ services:
             - 80:80
             - 443:443
 
-        # deploy:
-        #     mode: replicated
-        #     replicas: 1
-# networks:
-#     caddy_network:
-#         name: dmz
-#         driver: overlay
-#         attachable: true
+        deploy:
+            mode: replicated
+            replicas: 1
+networks:
+    caddy_network:
+        name: dmz
+        driver: overlay
+        attachable: true
