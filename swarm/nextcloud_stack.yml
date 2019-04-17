@@ -1,12 +1,8 @@
 version: '3'
 
 services:
-    mariadb:
-        container_name: mariadb
-        image: mariadb:latest
-        restart: always
-        env_file:
-            - ./Docker/api/api.env
+    db:
+        image: postgres:11.2
         environment:
             - MYSQL_DATABASE=${MARIA_DB}
             - MYSQL_USER=${MARIA_USER}
