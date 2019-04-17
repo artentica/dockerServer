@@ -4,24 +4,41 @@ services:
     db:
         image: postgres:11.2
         environment:
-            - MYSQL_DATABASE=${MARIA_DB}
-            - MYSQL_USER=${MARIA_USER}
-            - MYSQL_PASSWORD=${MARIA_PASSWORD}
-            - MYSQL_ROOT_PASSWORD=${MARIA_ROOT_PASSWORD}
-        expose:
-            - "3306"
+            - POSTGRES_USER=nextcloud
+            - POSTGRES_PASSWORD=nextcloud
+            - POSTGRES_DB=dont_care
         volumes:
-            - /srv/mariadb:/var/lib/mysql
+            - /srv/postgres:/var/lib/postgresql/data
+        networks:
+            - nextcloud
+        deploy:
+            mode: replicated
+            replicas: 1
 
     nextcloud:
-        container_name: nextcloud
-        image: nextcloud:latest
-        restart: always
+        image: nextcloud
+        depends_on:
+            - db
+        environment:
+            - POSTGRES_DB=nextcloud
+            - POSTGRES_USER=nextcloud
+            - POSTGRES_PASSWORD=nextcloud
+            - POSTGRES_HOST=db
         expose:
             - "80"
         volumes:
             - /srv/nextcloud:/var/www/html
-        links:
-            - mariadb
-        depends_on:
-            - mariadb
+        networks:
+            - dmz
+            - nextcloud
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints: [node.role == manager]
+
+networks:
+  dmz:
+    external: true
+  nextcloud:
+    driver: overlay
