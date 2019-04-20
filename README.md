@@ -8,7 +8,7 @@ This project has to main goal to manage my infrastructure over docker
 
 ## Summary
 
-This project has to main goal to provide a server Caddy with my configuration on my su  domains
+This project has to main goal to provide a server Caddy with my configuration on my su  domains.
 
 ## Installation
 
