@@ -11,23 +11,8 @@ services:
             - /srv/caddy:/root/.caddy
             - ./Caddyfile:/etc/Caddyfile
             - /srv/www/:/var/www/html
-              #links:
-              # - nextcloud
-              #- radarr
-              # - deluge
-              # - sonarr
-              #- filebrowser
-              #- emby
         networks:
             - caddy_network
-
-              #depends_on:
-              #- nextcloud
-              #- sonarr
-              #- radarr
-              #- deluge
-              #- filebrowser
-              #- emby
         ports:
             - 80:80
             - 443:443
