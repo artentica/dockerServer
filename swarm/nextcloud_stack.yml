@@ -16,7 +16,7 @@ services:
             replicas: 1
 
     nextcloud:
-        image: nextcloud
+        image: nextcloud:14.0.12
         depends_on:
             - db
         environment:
