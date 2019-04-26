@@ -7,6 +7,7 @@ services:
             - POSTGRES_USER=nextcloud
             - POSTGRES_PASSWORD=nextcloud
             - POSTGRES_DB=dont_care
+            - POSTGRES_DATABASE=idontcare
         volumes:
             - /srv/temp/postgres:/var/lib/postgresql/data
         networks:
