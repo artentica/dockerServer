@@ -3,16 +3,17 @@ version: '3.5'
 services:
 
     jackett:
-       image: linuxserver/jackett:latest
-       environment:
-           - PGID=1000
-           - PUID=1000
-           - TZ=Europe/Paris
-       volumes:
-           - /srv/jackett/config:/config
-           - /srv/jackett/downloads:/downloads
-       ports:
-         - "9117:9117"
+        # 05/06/2019
+        image: linuxserver/jackett:v0.11.388-ls25
+        environment:
+            - PGID=1000
+            - PUID=1000
+            - TZ=Europe/Paris
+        volumes:
+            - /srv/jackett/config:/config
+            - /srv/jackett/downloads:/downloads
+        ports:
+            - "9117:9117"
         networks:
             - dmz
         deploy:
