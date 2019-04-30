@@ -19,8 +19,7 @@ services:
         deploy:
             mode: replicated
             replicas: 1
+
 networks:
-    caddy_network:
-        name: dmz
-        driver: overlay
-        attachable: true
+    dmz:
+        external: true
