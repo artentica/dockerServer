@@ -3,9 +3,8 @@ version: '3.5'
 services:
 
     sonarr:
-        container_name: sonarr
-        image: linuxserver/sonarr
-        restart: always
+        # 12/06/2019
+        image: linuxserver/sonarr:2.0.0.5322-ls19
         ports:
           - 8989:8989
         volumes:
