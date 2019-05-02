@@ -5,8 +5,6 @@ services:
     sonarr:
         # 12/06/2019
         image: linuxserver/sonarr:2.0.0.5322-ls19
-        ports:
-          - 8989:8989
         volumes:
           - /etc/localtime:/etc/localtime:ro
           - /dev/rtc:/dev/rtc:ro
