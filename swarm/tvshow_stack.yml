@@ -13,7 +13,12 @@ services:
           - /srv/sonarr/config:/config
           - /srv/deluge/downloads:/downloads
           - /srv/tvshow:/tv
-        links:
-            - deluge
-        depends_on:
-            - deluge
+        networks:
+            - dmz
+        deploy:
+            mode: replicated
+            replicas: 1
+
+networks:
+    dmz:
+        external: true
