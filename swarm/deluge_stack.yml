@@ -2,9 +2,8 @@ version: '3.5'
 
 services:
     deluge:
-        container_name: deluge
-        image: linuxserver/deluge:latest
-        restart: always
+        # 12/06/2019
+        image: linuxserver/deluge:2.0.2-0201906082034ubuntu18.04.1-ls24
         environment:
             - PUID=0
             - PGID=0
