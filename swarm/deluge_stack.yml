@@ -11,8 +11,9 @@ services:
             - /srv/deluge/downloads:/downloads
             - /srv/deluge/config:/config
             - /etc/localtime:/etc/localtime:ro
-        expose:
-            - "8112"
-            - "58846"
-        ports:
-            - "7000-7009:7000-7009"
+        networks:
+            - dmz
+
+networks:
+    dmz:
+        external: true
