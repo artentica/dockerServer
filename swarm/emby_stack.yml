@@ -14,3 +14,12 @@ services:
           - AUTO_UPDATES_ON=true
           - APP_UID=1000
           - APP_GID=1000
+        networks:
+            - dmz
+        deploy:
+            mode: replicated
+            replicas: 1
+
+networks:
+    dmz:
+        external: true
