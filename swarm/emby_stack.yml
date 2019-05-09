@@ -2,18 +2,18 @@ version: '3.5'
 services:
     emby:
         # 12/06/2019
-      image: emby/embyserver:4.2.0.15
-      volumes:
-          - /etc/localtime:/etc/localtime:ro
-          - /srv/emby/config:/config
-          - /srv/tvshow:/media/tvshow
-          - /srv/movie:/media/movie
-      environment:
-          - VIRTUAL_PORT=8096
-          - VIRTUAL_HOST=emby.htpc
-          - AUTO_UPDATES_ON=true
-          - APP_UID=1000
-          - APP_GID=1000
+        image: emby/embyserver:4.2.0.15
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - /srv/emby/config:/config
+            - /srv/tvshow:/media/tvshow
+            - /srv/movie:/media/movie
+        environment:
+            - VIRTUAL_PORT=8096
+            - VIRTUAL_HOST=emby.htpc
+            - AUTO_UPDATES_ON=true
+            - APP_UID=1000
+            - APP_GID=1000
         networks:
             - dmz
         deploy:
