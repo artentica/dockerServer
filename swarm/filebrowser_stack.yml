@@ -2,11 +2,8 @@ version: '3.5'
 
 services:
     filebrowser:
-        container_name: filebrowser
-        image: hacdias/filemanager:latest
+        image: filebrowser/filebrowser:latest
         volumes:
           - /srv/filebrowser/config.json:/config.json
           - /srv:/srv
           - /srv/filebrowser/database.db:/etc/database.db
-        expose:
-          - 80
