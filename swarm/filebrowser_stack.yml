@@ -7,3 +7,12 @@ services:
           - /srv/filebrowser/config.json:/config.json
           - /srv:/srv
           - /srv/filebrowser/database.db:/etc/database.db
+        networks:
+            - dmz
+        deploy:
+            mode: replicated
+            replicas: 1
+
+networks:
+    dmz:
+        external: true
