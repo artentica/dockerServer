@@ -6,7 +6,8 @@ services:
         volumes:
           - /srv/filebrowser/config.json:/config.json
           - /srv:/srv
-          - /srv/filebrowser/database.db:/etc/database.db
+          # reset database file
+          # - /srv/filebrowser/database.db:/etc/database.db
         networks:
             - dmz
         deploy:
