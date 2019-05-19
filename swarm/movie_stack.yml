@@ -12,8 +12,12 @@ services:
             - /srv/radarr/config:/config:rw
             - /srv/movie:/movies
             - /etc/localtime:/etc/localtime:ro
-        links:
-            - deluge
+        networks:
+            - dmz
+        deploy:
+            mode: replicated
+            replicas: 1
 
-        depends_on:
-            - deluge
+networks:
+    dmz:
+        external: true
