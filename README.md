@@ -1,20 +1,8 @@
-# Infrastructure
+<h1 align="center" style="border-bottom: none;">🐳Infrastructure</h1>
+<h3 align="center">This project has to main goal to manage my infrastructure over swarm</h3>
 
-## Summary
+**Infrastructure** is my project to deploy easyly a new servor with all main feature set up.
 
-This project has to main goal to manage my infrastructure over docker
-
-# Caddy
-
-## Summary
-
-This project has to main goal to provide a server Caddy with my configuration on my su  domains.
-
-## Installation
-
-```bash
-$ sudo docker run --name caddy -http2=false -p 80:80 -p 443:443 artentica/caddy:latest
-```
 ## Warning
 
 No auto creation of folder.
