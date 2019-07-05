@@ -20,6 +20,19 @@ services:
             mode: replicated
             replicas: 1
 
+    plex:
+        image: plexinc/pms-docker
+        volumes:
+            - /srv/plex/config:/config
+            - /srv/plex/transcode:/transcode
+        networks:
+            - dmz
+        deploy:
+            mode: replicated
+            replicas: 1
+
+
+
 networks:
     dmz:
         external: true
