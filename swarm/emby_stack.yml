@@ -25,6 +25,8 @@ services:
         volumes:
             - /srv/plex/config:/config
             - /srv/plex/transcode:/transcode
+            - /srv/tvshow:/data/tvshow
+            - /srv/movie:/data/movie
         networks:
             - dmz
         deploy:
