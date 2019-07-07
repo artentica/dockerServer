@@ -55,6 +55,15 @@ www.stream.vincentriouallon.com, stream.vincentriouallon.com {
     gzip
 }
 
+www.plex.vincentriouallon.com, plex.vincentriouallon.com {
+    tls server@vincentriouallon.com
+    proxy / plex:32400 {
+        websocket
+    }
+
+    gzip
+}
+
 www.portainer.vincentriouallon.com, portainer.vincentriouallon.com {
   tls server@vincentriouallon.com
   proxy / portainer:9000 {
