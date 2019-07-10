@@ -58,8 +58,10 @@ www.stream.vincentriouallon.com, stream.vincentriouallon.com {
 www.plex.vincentriouallon.com, plex.vincentriouallon.com {
     tls server@vincentriouallon.com
     proxy / plex:32400 {
+    	transparent
         websocket
     }
+    timeout none
 
     gzip
 }
