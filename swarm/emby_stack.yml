@@ -40,6 +40,7 @@ services:
             - 32413:32413/udp
             - 32414:32414/udp
         networks:
+            - plex
             - dmz
         deploy:
             mode: replicated
@@ -49,4 +50,8 @@ services:
 
 networks:
     dmz:
+        external: true
+
+    plex:
+        driver: overlay
         external: true
