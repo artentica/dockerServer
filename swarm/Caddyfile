@@ -57,11 +57,11 @@ www.stream.vincentriouallon.com, stream.vincentriouallon.com {
 
 www.plex.vincentriouallon.com, plex.vincentriouallon.com {
     tls server@vincentriouallon.com
+    timeout none
     proxy / plex:32400 {
     	transparent
         websocket
-    }
-    timeout none
+	}
 
     gzip
 }
