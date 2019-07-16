@@ -20,32 +20,9 @@ services:
             mode: replicated
             replicas: 1
 
-    plex:
-        image: plexinc/pms-docker
-        volumes:
-            - /srv/plex/config:/config
-            - /srv/plex/transcode:/transcode
-            - /srv/tvshow:/data/tvshow
-            - /srv/movie:/data/movie
-
-        ports:
-            - 32469:32469
-            - 32400:32400
-            - 32401:32401
-            - 3005:3005
-            - 8324:8324
-            - 1900:1900/udp
-            - 32410:32410/udp
-            - 32412:32412/udp
-            - 32413:32413/udp
-            - 32414:32414/udp
-        networks:
-            - plex
-            - dmz
-        deploy:
-            mode: replicated
-            replicas: 1
-
+    # plex:
+    #         #image: plexinc/pms-docker
+    #     image: linuxserver/plex
 
 
 networks:
