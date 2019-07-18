@@ -57,4 +57,5 @@ networks:
 
     plex:
         driver: overlay
-        external: true
+        attachable: true
+
