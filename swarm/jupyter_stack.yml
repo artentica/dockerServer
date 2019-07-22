@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  jupyter:
+    image: jupyterhub/jupyterhub:0.8.0
+    networks:
+      - dmz
+    volumes:
+      - /srv/jupyter/worspace:/workspace
+    working_dir: /workspace
+    # environment:
+    #   - CONDA_ENVS_PATH=${REPO_HOME}/envs
+
+networks:
+  dmz:
+    external: true
