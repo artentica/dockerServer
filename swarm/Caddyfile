@@ -73,3 +73,11 @@ www.portainer.vincentriouallon.com, portainer.vincentriouallon.com {
     websocket
   }
 }
+
+www.jupyter.vincentriouallon.com, jupyter.vincentriouallon.com {
+  tls server@vincentriouallon.com
+  proxy / jupyter:8888 {
+    transparent
+    websocket
+  }
+}
