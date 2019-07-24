@@ -6,7 +6,7 @@ services:
     networks:
       - dmz
     volumes:
-      - /srv/jupyter/worspace:/workspace
+      - /srv/jupyter/workspace:/workspace
     working_dir: /workspace
     # environment:
     #   - CONDA_ENVS_PATH=${REPO_HOME}/envs
