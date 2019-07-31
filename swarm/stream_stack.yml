@@ -25,7 +25,7 @@ services:
         environment:
             - TZ=Europe/Paris
             - ADVERTISE_IP=https://plex.vincentriouallon.com
-            - PLEX_CLAIM=claim-xMQuautXBoV5mZmDg3wk
+            - PLEX_CLAIM=claim-CuEbqKWY4akeV7zsuh7p
             - PLEX_UID=1000
             - PLEX_GID=1000
         expose:
@@ -34,8 +34,8 @@ services:
         volumes:
             - /srv/tvshow:/data/tvshow
             - /srv/movie:/data/movie
-    #      - /rapidStorage/PlexConfig/:/config
-    #      - /tmp:/transcode
+            - /srv/plex/config/:/config
+            # - /tmp:/transcode
         networks:
             - dmz
         deploy:
