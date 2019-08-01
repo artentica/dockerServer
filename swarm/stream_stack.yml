@@ -28,9 +28,8 @@ services:
             - PLEX_CLAIM=claim-CuEbqKWY4akeV7zsuh7p
             - PLEX_UID=1000
             - PLEX_GID=1000
-        expose:
-            - "32400"
-            - "33400"
+        ports:
+            - "32400:32400"
         volumes:
             - /srv/tvshow:/data/tvshow
             - /srv/movie:/data/movie
