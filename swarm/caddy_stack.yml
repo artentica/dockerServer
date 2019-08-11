@@ -10,7 +10,6 @@ services:
         volumes:
             - /srv/caddy:/root/.caddy
             - ./Caddyfile:/etc/Caddyfile
-            - /srv/www/:/var/www/html
         networks:
             - caddy_network
         ports:

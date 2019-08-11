@@ -57,7 +57,6 @@ www.stream.vincentriouallon.com, stream.vincentriouallon.com {
 
 www.plex.vincentriouallon.com, plex.vincentriouallon.com {
     tls server@vincentriouallon.com
-    timeout none
     proxy / plex:32400 {
     	transparent
         websocket
@@ -76,8 +75,5 @@ www.portainer.vincentriouallon.com, portainer.vincentriouallon.com {
 
 www.jupyter.vincentriouallon.com, jupyter.vincentriouallon.com {
   tls server@vincentriouallon.com
-  proxy / jupyter:8000 {
-    transparent
-    websocket
-  }
+  proxy / jupyter:8888
 }
