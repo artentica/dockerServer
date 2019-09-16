@@ -10,6 +10,7 @@ services:
       - "8888:8888"
     volumes:
       - /srv/jupyter/work:/home/jovyan/work
+      - /srv/jupyter/.jupyter:/home/jovyan/.jupyter
     # environment:
     #   - CONDA_ENVS_PATH=${REPO_HOME}/envs
 
