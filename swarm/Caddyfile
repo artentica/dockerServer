@@ -77,3 +77,7 @@ www.jupyter.vincentriouallon.com, jupyter.vincentriouallon.com {
   tls server@vincentriouallon.com
   proxy / jupyter:8888
 }
+
+www.vincentriouallon.com, vincentriouallon.com {
+  tls server@vincentriouallon.com
+}
