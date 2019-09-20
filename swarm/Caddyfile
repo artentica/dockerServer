@@ -80,4 +80,5 @@ www.jupyter.vincentriouallon.com, jupyter.vincentriouallon.com {
 
 www.vincentriouallon.com, vincentriouallon.com {
   tls server@vincentriouallon.com
+  redir https://www.linkedin.com/in/vincent-riouallon-98497b9b
 }
