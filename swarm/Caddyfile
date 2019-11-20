@@ -78,7 +78,7 @@ www.jupyter.vincentriouallon.com, jupyter.vincentriouallon.com {
   proxy / jupyter:8888
 }
 
-www.vincentriouallon.com, vincentriouallon.com {
+vincentriouallon.com {
   tls server@vincentriouallon.com
   redir https://www.linkedin.com/in/vincent-riouallon-98497b9b
 }
