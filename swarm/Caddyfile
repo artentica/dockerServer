@@ -81,5 +81,7 @@ www.jupyter.vincentriouallon.com, jupyter.vincentriouallon.com {
 vincentriouallon.com {
   tls server@vincentriouallon.com
   root /var/www/html/portfolio
+  redir /cv /CV-RiouallonVincent.pdf
+  redir /CV /CV-RiouallonVincent.pdf
   redir / https://www.linkedin.com/in/vincent-riouallon-98497b9b
 }
