@@ -7,6 +7,7 @@ services:
         image: abiosoft/caddy:0.11.0
         environment:
             - ACME_AGREE=true
+            - CASE_SENSITIVE_PATH=false
         volumes:
             - /srv/caddy:/root/.caddy
             - ./Caddyfile:/etc/Caddyfile
