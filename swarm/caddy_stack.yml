@@ -4,7 +4,7 @@ services:
 
     caddy:
         # freeze in 0.11.0 because in higher version (0.11.1 & 0.11.2) a bug stopping ACME is still present
-        image: abiosoft/caddy:0.11.0
+        image: abiosoft/caddy:1.0.3
         environment:
             - CADDYPATH=/etc/caddycerts
             - ACME_AGREE=true
