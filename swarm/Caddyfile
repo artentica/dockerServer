@@ -78,7 +78,7 @@ www.jupyter.vincentriouallon.com, jupyter.vincentriouallon.com {
   proxy / jupyter:8888
 }
 
-vincentriouallon.com {
+www.vincentriouallon.com, vincentriouallon.com {
   tls server@vincentriouallon.com
   root /var/www/html/portfolio
   redir /cv /CV-RiouallonVincent.pdf
