@@ -81,4 +81,11 @@ www.jupyter.vincentriouallon.com, jupyter.vincentriouallon.com {
 www.vincentriouallon.com, vincentriouallon.com {
   tls server@vincentriouallon.com
   root /var/www/html/portfolio
+  rewrite {
+    if {path} is /cv
+    if {path} is /CV
+    if_op  or
+    to /CV-RiouallonVincent.pdf
+  }
 }
+
