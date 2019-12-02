@@ -87,5 +87,11 @@ www.vincentriouallon.com, vincentriouallon.com {
     if_op  or
     to /CV-RiouallonVincent.pdf
   }
+  rewrite {
+    # Check for a file, then a folder
+    # If neither exists, we would usually issue a 404
+    # Instead, here we rewrite to /linkedin
+    to {path} {path}/ /linkedin
+  }
 }
 
