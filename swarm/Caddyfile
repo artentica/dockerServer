@@ -93,5 +93,14 @@ www.vincentriouallon.com, vincentriouallon.com {
     # Instead, here we rewrite to /linkedin
     to {path} {path}/ /linkedin
   }
+  redir {
+    # /rlinkedin would usually still issue a 404
+    # So manually redir from this path if it was rewritten to
+    if {rewrite_uri} is /linkedin
+    if {path} is /
+    if_op  or
+    # Modify the destination and status as required
+    / https://www.linkedin.com/in/vincent-riouallon-98497b9b 302
+  }
 }
 
