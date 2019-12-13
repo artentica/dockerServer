@@ -94,7 +94,7 @@ www.vincentriouallon.com, vincentriouallon.com {
     to {path} {path}/ /linkedin
   }
   redir {
-    # /rlinkedin would usually still issue a 404
+    # /linkedin would usually still issue a 404
     # So manually redir from this path if it was rewritten to
     if {rewrite_uri} is /linkedin
     if {path} is /
