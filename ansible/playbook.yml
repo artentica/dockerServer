@@ -1,8 +1,8 @@
-- name: Installation du serveur
+- name: Server installation
   hosts: seedbox
   remote_user: root
   tasks:
-    - name: Installation de git
+    - name: Git installation
       apt: name=git
-    - name: installation de Vim
+    - name: Vim installation
       apt: name=vim
