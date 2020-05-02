@@ -1,5 +1,5 @@
 - name: Installation du serveur
-  hosts: web
+  hosts: seedbox
   remote_user: root
   tasks:
     - name: Installation de git
