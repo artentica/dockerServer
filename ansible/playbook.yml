@@ -3,6 +3,6 @@
   remote_user: root
   tasks:
     - name: Installation de git
-      apt: name=git update_cache=yes
+      apt: name=git
     - name: installation de Vim
       apt: name=vim
