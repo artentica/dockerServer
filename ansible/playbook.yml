@@ -1,8 +1,10 @@
 - name: Server installation
   hosts: seedbox
   remote_user: root
+
   tasks:
-    - name: Git installation
-      apt: name=git
-    - name: Vim installation
-      apt: name=vim
+    - name: Dependencies installation
+      apt: name={{ item }}
+      with_items:
+        - git
+        - vim
