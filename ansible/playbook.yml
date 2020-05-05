@@ -4,7 +4,7 @@
 
   tasks:
     - name: Dependencies installation
-      apt: name={{ item }}
+      apt: name={{ item }} state=latest
       with_items:
         - git
         - vim
