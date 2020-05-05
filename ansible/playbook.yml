@@ -8,3 +8,4 @@
       with_items:
         - git
         - vim
+        - htop
