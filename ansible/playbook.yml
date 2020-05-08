@@ -4,9 +4,9 @@
 
   tasks:
     - name: Dependencies installation
-      apt: name={{ item }} update_cache=yes state=latest
-      with_items:
-        - git
-        - vim
-        - htop
-        - zsh
+      pacman:
+        name:
+          - git
+          - vim
+          - htop
+          - zsh
