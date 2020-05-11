@@ -11,3 +11,4 @@
           - htop
           - zsh
         update_cache: yes
+        upgrade: yes
