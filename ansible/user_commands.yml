@@ -1,4 +1,4 @@
-- hosts: seedbox
+- hosts: web
   remote_user: root
   vars:
     # created with:
