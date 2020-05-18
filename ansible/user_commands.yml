@@ -8,4 +8,6 @@
   tasks:
 
     # Walk through account creation, modification, and deletion
-    - user: name=tset password={{password}}
+    - user: 
+        name: tset
+        password: "{{password}}"
