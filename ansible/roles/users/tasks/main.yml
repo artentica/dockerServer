@@ -1,0 +1,11 @@
+---
+- name: "Create user: {{item.username}}"
+  user: 
+    name: "{{item.username}}"
+    password: "{{item.password}}"
+  with_items:
+    - username: 'artentica'
+      password: 'toto'
+    - username: 'doctor'
+      password: 'titi'
+...
