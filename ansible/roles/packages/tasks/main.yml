@@ -1,7 +1,7 @@
 ---
-- debug:
-    msg: "{{ hostvars[inventory_hostname] }}"
-    
+# - debug:
+#     msg: "{{ hostvars[inventory_hostname] }}"
+
 - name: Dependencies installation
   pacman:
     name:
