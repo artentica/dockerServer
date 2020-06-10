@@ -1,4 +1,12 @@
 ---
+- name: Server ssh only
+  hosts: web
+  remote_user: root
+  roles:
+    - role: ssh
+      tags:
+        - ssh
+
 - name: Server installation
   hosts: web
   remote_user: root
