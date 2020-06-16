@@ -1,3 +1,8 @@
 ---
 
+- name: Add docker GPG key
+  apt_key:
+    url: "{{ ansible_docker_repo_key }} "
+    id: "{{ ansible_docker_repo_key_id }}"
+
 ...
