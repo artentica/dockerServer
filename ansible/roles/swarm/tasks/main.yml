@@ -9,4 +9,12 @@
   apt_repository:
     repo: "{{ ansible_docker_repo }}"
 
+- name: install Docker and dependencies
+  apt:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  with_items: "{{ packages}}"
+
+
 ...
