@@ -5,4 +5,8 @@
     url: "{{ ansible_docker_repo_key }} "
     id: "{{ ansible_docker_repo_key_id }}"
 
+- name: Add docker Repository
+  apt_repository:
+    repo: "{{ ansible_docker_repo }}"
+
 ...
