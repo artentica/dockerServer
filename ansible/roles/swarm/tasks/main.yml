@@ -21,5 +21,11 @@
     name: "{{ ansible_user }}"
     group: "{{ docker_group }}"
 
+- name: Create docker service directory
+  file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
+  notify:
+    - restart docker
 
 ...
