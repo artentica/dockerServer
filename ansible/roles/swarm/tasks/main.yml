@@ -28,7 +28,7 @@
   notify:
     - restart docker
 
-- name: Ensure Docker is runnig
+- name: Ensure Docker is running
   service:
     name: docker
     state: started
