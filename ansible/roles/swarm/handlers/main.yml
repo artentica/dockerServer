@@ -1,8 +1,6 @@
 ---
-
-- name: Ensure Docker is runnig
+- name: restart docker
   service:
     name: docker
-    state: started
-    enabled: yes
+    state: restarted
 ...
