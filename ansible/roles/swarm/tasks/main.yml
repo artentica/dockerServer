@@ -10,7 +10,7 @@
     repo: "{{ ansible_docker_repo }}"
 
 - name: install Docker and dependencies
-  apt:
+  pacman:
     name: "{{ packages }}"
     state: latest
     update_cache: yes
