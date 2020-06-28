@@ -1,5 +1,6 @@
 ---
 ansible_host: 91.121.85.107
+ansible_port: 137
 data_center: RBX1
 rack: 07A01
 id: 172791
