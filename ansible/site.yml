@@ -7,19 +7,19 @@
       tags:
         - ssh
 
-- name: Server installation
-  hosts: web
-  remote_user: root
-  roles:
-    - role: packages
-      tags:
-        - packages
+# - name: Server installation
+#   hosts: web
+#   remote_user: root
+#   roles:
+#     - role: packages
+#       tags:
+#         - packages
 
-- name: User configuration
-  hosts: web
-  remote_user: root
-  roles:
-    - role: users
-      tags:
-        - users
-...
+# - name: User configuration
+#   hosts: web
+#   remote_user: root
+#   roles:
+#     - role: users
+#       tags:
+#         - users
+# ...
