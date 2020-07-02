@@ -1,25 +1,67 @@
 ---
+# ansible_port can change throughout this role, keep a copy around
+- name: Set configured port fact
+  set_fact:
+    configured_port: "{{ ansible_port }}"
 
 - name: "Check port {{ ansible_port }}"
   wait_for:
-    port: "{{ ansible_port }}"
+    port: "{{ ansible_host }}"
     state: "started"
     host: "{{ inventory_hostname }}"
     connect_timeout: "5"
     timeout: "5"
   delegate_to: "localhost"
   ignore_errors: "yes"
-  register: ssh_port_used
+  register: ssh_port
 
 - debug:
     msg: "{{ ssh_port_used }}"
 
-- name: Security | Disallow password authentication
+- name: "Check port 22"
+  wait_for:
+    port: "22"
+    state: "started"
+    host: "{{ inventory_hostname }}"
+    connect_timeout: "5"
+    timeout: "5"
+  delegate_to: "localhost"
+  ignore_errors: "yes"
+  register: ssh_port_default
+  when:
+    - ssh_port is defined
+    - ssh_port.state is undefined
+
+- name: Set SSH port to 22
+  set_fact:
+    temporary_port: "22"
+  when: ssh_port_default.state is defined
+
+# - name: Security | Disallow password authentication
+#   lineinfile:
+#     dest: /etc/ssh/sshd_config
+#     regexp: "^[#]*PasswordAuthentication"
+#     line: "PasswordAuthentication no"
+#     state: present
+#   notify: restart ssh
+#   tags: ["ssh"]
+
+- name: Setup alternate SSH port
   lineinfile:
-    dest: /etc/ssh/sshd_config
-    regexp: "^[#]*PasswordAuthentication"
-    line: "PasswordAuthentication no"
-    state: present
-  notify: restart ssh
-  tags: ["ssh"]
+    dest: "/etc/ssh/sshd_config"
+    regexp: "^Port"
+    line: "Port {{ configured_port }}"
+  notify: "restart sshd"
+
+
+- name: "Set SSH port to {{ configured_port }}"
+  set_fact:
+    ansible_port: "{{ configured_port }}"
+  when: ssh_port_default.state is defined
+
+  # Gather facts should be set to false when running this role since it will
+# fail if the Ansible SSH port is not set correctly.
+# We run setup to gather facts here once the SSH port is set up.
+- name: Run deferred setup to gather facts
+  setup:
 ...
