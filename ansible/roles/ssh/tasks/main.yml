@@ -6,9 +6,9 @@
 
 - name: "Check port {{ ansible_port }}"
   wait_for:
-    port: "{{ ansible_host }}"
+    port: "{{ ansible_port }}"
     state: "started"
-    host: "{{ inventory_hostname }}"
+    host: "{{ ansible_host }}"
     connect_timeout: "5"
     timeout: "5"
   delegate_to: "localhost"
@@ -16,13 +16,13 @@
   register: ssh_port
 
 - debug:
-    msg: "{{ ssh_port_used }}"
+    msg: "{{ ansible_host }}"
 
 - name: "Check port 22"
   wait_for:
     port: "22"
     state: "started"
-    host: "{{ inventory_hostname }}"
+    host: "{{ ansible_host }}"
     connect_timeout: "5"
     timeout: "5"
   delegate_to: "localhost"

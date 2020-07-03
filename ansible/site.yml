@@ -2,6 +2,7 @@
 - name: Server ssh only
   hosts: web
   remote_user: root
+  gather_facts: no
   roles:
     - role: ssh
       tags:
