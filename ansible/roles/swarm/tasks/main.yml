@@ -1,14 +1,5 @@
 ---
 
-- name: Add docker GPG key
-  apt_key:
-    url: "{{ ansible_docker_repo_key }} "
-    id: "{{ ansible_docker_repo_key_id }}"
-
-- name: Add docker Repository
-  apt_repository:
-    repo: "{{ ansible_docker_repo }}"
-
 - name: install Docker and dependencies
   pacman:
     name: "{{ packages }}"
