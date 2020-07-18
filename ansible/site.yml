@@ -23,4 +23,12 @@
     - role: users
       tags:
         - users
+
+- name: Swarm installation & configuration
+  hosts: web
+  remote_user: root
+  roles:
+    - role: swarm
+      tags:
+        - swarm
 ...
