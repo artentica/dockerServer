@@ -1,0 +1,5 @@
+users:
+  - username: 'artentica'
+    # groups: "admin,www-data"
+  - username: 'doctor'
+    # groups: "admin,www-data"
