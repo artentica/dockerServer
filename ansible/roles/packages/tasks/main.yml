@@ -1,7 +1,7 @@
 ---
 # - debug:
 #     msg: "{{ hostvars[inventory_hostname] }}"
-
+    
 - name: Dependencies installation
   pacman:
     name:
@@ -9,6 +9,8 @@
       - vim
       - htop
       - zsh
+      - sudo
+      
     update_cache: yes
     # upgrade: yes
     state: latest
