@@ -46,7 +46,7 @@
 #   notify: restart ssh
 #   tags: ["ssh"]
 
-- name: Setup alternate SSH port
+- name: Change sshd config
   lineinfile:
     dest: "{{ sshd_config_path }}"
     regexp: "{{ item.regexp }}"
@@ -54,6 +54,7 @@
   with_items:
     - { regexp: '^Port', line: 'Port "{{configured_port}}"' }
     - { regexp: '^[#]*PasswordAuthentication=', line: 'PasswordAuthentication no' }
+    - { regexp: '^PermitRootLogin', line: 'PermitRootLogin no' }
   notify: "restart sshd"
 
 # We notified "Restart sshd" if we modified the sshd config.
