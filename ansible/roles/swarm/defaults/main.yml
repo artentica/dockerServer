@@ -1,7 +1,8 @@
 ---
 packages:
   - docker
+  - docker-compose
+  - python-pip
 
-ansible_user: ansible
 docker_group: docker
 ...
