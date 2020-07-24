@@ -5,19 +5,17 @@
     name: "{{ packages }}"
     state: latest
     update_cache: yes
-  with_items: "{{ packages}}"
+  with_items: "{{ packages }}"
 
-# - name: Add  user to docker group
-#   user:
-#     name: "{{ ansible_user }}"
-#     group: "{{ docker_group }}"
+- name: "Ensure group {{ docker_group }} exists"
+  group:
+    name: "{{ docker_group }}"
 
-# - name: Create docker service directory
-#   file:
-#     path: /etc/systemd/system/docker.service.d
-#     state: directory
-#   notify:
-#     - restart docker
+- name: Add  user to docker group
+  user:
+    name: "{{ item.username }}"
+    group: "{{ docker_group }}"
+  with_items: "{{ users }}"
 
 - name: Ensure Docker is running
   service:
