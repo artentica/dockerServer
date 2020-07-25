@@ -1,0 +1,75 @@
+version: "3.8"
+
+
+networks:
+  traefik:
+    name: "dmz"
+    driver: overlay
+    attachable: true
+
+services:
+
+  traefik:
+    image: "traefik:v2.2"
+    command:
+      - "--global.sendanonymoususage=false" # dÃ©sactivation de l'envoi de donnÃ©e
+      - "--global.checknewversion=false" # puisque dockerisÃ©, on dÃ©sactive le check de mise Ã  jour
+      - "--accesslog=true" # Pour avoir les logs d'accÃ¨s
+      - "--api=true" # Pour activer l'api
+      # Swarm
+      #traefik.http.services.myservice.loadbalancer.server.port=8080
+      - "--providers.docker.swarmMode=true"
+      - "--providers.docker.watch=true"
+      - "--providers.docker.endpoint=unix:///var/run/docker.sock"
+      - "--api.insecure=true" # Activer pour exposer l'api sur 8080
+      - "--api.dashboard=true" # Pour activer le dashboard
+      - "--log.level=DEBUG"
+      #- "--providers.file.directory=/etc/traefik/conf.d/" # Permets de charger les configurations dans le rÃ©pertoire (tout les yaml et toml)
+      #- "--providers.file.watch=true" # Permets de surveiller le rÃ©pertoire prÃ©cÃ©dent pour charger dynamiquement les configurations
+      - "--entrypoints.http.address=:80" # CrÃ©ation de l'entrypoint nommÃ© web sur le port 80
+      - "--entrypoints.https.address=:443" # CrÃ©ation de l'entrypoint nommÃ© websecure sur le port 443
+      #- "--entrypoints.web.http.redirections.entrypoint.scheme=https" # Pour crÃ©er une redirection vers https
+      #- "--entrypoints.web.http.redirections.entrypoint.to=websecure" # Pour rediriger vers l'entrypoint websecure (port 443)
+      - "--certificatesresolvers.letsencrypt-rsa2048.acme.email=server@vincentriouallon.ovh"
+      - "--certificatesresolvers.letsencrypt-rsa2048.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.letsencrypt-rsa2048.acme.storage=/acme.json"
+      - "--certificatesresolvers.letsencrypt-rsa2048.acme.keytype=RSA2048"
+      - "--certificatesresolvers.letsencrypt-rsa2048.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.letsencrypt-rsa2048.acme.tlschallenge=true"
+    networks:
+      - traefik
+    ports:
+      - "8080:8080"
+      - "443:443"
+      - "80:80"
+    deploy:
+      labels:
+        - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+        - "traefik.docker.lbswarm=true"
+        - "traefik.enable=true"
+        - "traefik.docker.network=dmz"
+        - "traefik.http.routers.traefik.entrypoints=https"
+        - "traefik.http.middlewares.http-redirect.redirectscheme.scheme=https"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  whoami:
+    image: "containous/whoami"
+    networks:
+      - traefik
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=dmz"
+        - "traefik.docker.lbswarm=true"
+        - "traefik.http.routers.reverse_proxy_plex_insecure.rule=Host(`whoami.vincentriouallon.ovh`)"
+        - "traefik.http.routers.reverse_proxy_plex_insecure.middlewares=http-redirect@docker"
+        - "traefik.http.routers.reverse_proxy_plex.entrypoints=https"
+        - "traefik.http.routers.reverse_proxy_plex.tls=true"
+        - "traefik.http.routers.reverse_proxy_plex.tls.certresolver=letsencrypt-rsa2048"
+        - "traefik.http.routers.reverse_proxy_plex.rule=Host(`whoami.vincentriouallon.ovh`)"
+        - "traefik.http.services.reverse_proxy_plex.loadbalancer.passhostheader=true"
+        - "traefik.http.services.reverse_proxy_plex.loadbalancer.server.port=80"
+        - "traefik.http.services.reverse_proxy_plex.loadbalancer.server.scheme=http"
+
+
