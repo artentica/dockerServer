@@ -1,11 +1,20 @@
 ---
 - name: "Create user: {{item.username}}"
-  user: 
-    name: "{{item.username}}"
-    password: "{{item.password}}"
-  with_items:
-    - username: 'artentica'
-      password: 'toto'
-    - username: 'doctor'
-      password: 'titi'
+  user:
+    name: "{{ item.username }}"
+    groups: "admin"
+  with_items: "{{ users }}"
+
+- name: "Add authorized keys"
+  authorized_key:
+    user: "{{ item.username }}"
+    key: "{{ lookup('file', 'files/'+ item.username + '.key.pub') }}"
+  with_items: "{{ users }}"
+
+- name: "Allow admin users to sudo without a password"
+  lineinfile:
+    dest: "/etc/sudoers" # path: in version 2.3
+    state: "present"
+    regexp: "^%admin"
+    line: "%admin ALL=(ALL) NOPASSWD: ALL"
 ...
