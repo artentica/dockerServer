@@ -1,0 +1,29 @@
+---
+
+- name: install Docker and dependencies
+  pacman:
+    name: "{{ packages }}"
+    state: latest
+    update_cache: yes
+  with_items: "{{ packages }}"
+
+- name: "Ensure group {{ docker_group }} exists"
+  group:
+    name: "{{ docker_group }}"
+
+- name: Add  user to docker group
+  user:
+    name: "{{ item.username }}"
+    group: "{{ docker_group }}"
+  with_items: "{{ users }}"
+
+- name: Ensure Docker is running
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Init a new swarm with default parameters
+  docker_swarm:
+    state: present
+...

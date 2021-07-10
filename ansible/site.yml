@@ -1,0 +1,34 @@
+---
+- name: Server ssh only
+  hosts: web
+  remote_user: root
+  gather_facts: no
+  roles:
+    - role: ssh
+      tags:
+        - ssh
+
+- name: Server installation
+  hosts: web
+  remote_user: root
+  roles:
+    - role: packages
+      tags:
+        - packages
+
+- name: User configuration
+  hosts: web
+  remote_user: root
+  roles:
+    - role: users
+      tags:
+        - users
+
+- name: Swarm installation & configuration
+  hosts: web
+  remote_user: root
+  roles:
+    - role: swarm
+      tags:
+        - swarm
+...

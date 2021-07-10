@@ -1,0 +1,4 @@
+---
+# Default path of the ssh config file
+sshd_config_path: "/etc/ssh/sshd_config"
+...

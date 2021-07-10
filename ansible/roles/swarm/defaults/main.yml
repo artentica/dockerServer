@@ -1,0 +1,8 @@
+---
+packages:
+  - docker
+  - docker-compose
+  - python-pip
+
+docker_group: docker
+...
